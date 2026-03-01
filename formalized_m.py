@@ -7,7 +7,7 @@ AUDIO_DEVICE = 10
 AUDIO_HOST = 'asio'
 BUFFER_SIZE = 512 
 
-# --- 1. Launchpad Setup & Hardware Detection ---
+# --- 1. Launchpad Setup ---
 mode = None
 lp = launchpad.Launchpad()
 lp_opened = False
@@ -39,7 +39,6 @@ if not lp_opened:
 lp.Reset()
 
 # --- 2. Audio Server Configuration ---
-# Booting Pyo with 4-channel output for true quadrophonic separation
 s = Server(sr=48000, nchnls=4, duplex=0, buffersize=BUFFER_SIZE, winhost=AUDIO_HOST)
 s.setOutputDevice(AUDIO_DEVICE)
 s.deactivateMidi()
@@ -181,7 +180,9 @@ def total_entropy_reset():
             for btn in SOLO_BTNS: lp_led_raw(btn, 0, 3)
             for i, b in enumerate(SIDE_BTNS):
                 lp_led_raw(b, *(ALGO_COLS_DIM[i] if i < 4 else (3,3) if i==5 else (0,1)))
-            lp_led_raw(DELAY_BTN, 0, 3); lp_led_raw(REVERB_BTN, 0, 3); lp_led_raw(EXIT_PWR_BTN, 3, 0)
+            lp_led_raw(DELAY_BTN, 0, 3); lp_led_raw(REVERB_BTN, 0, 3)
+            if mode == "Mk2": lp.LedCtrlRaw(EXIT_PWR_BTN, 10, 10, 63)
+            else: lp_led_raw(EXIT_PWR_BTN, 1, 3)
         except: pass 
     master_vol_port.value = master_vol.value
     is_fading = False
@@ -195,14 +196,19 @@ try:
     for i, b in enumerate(SIDE_BTNS):
         lp_led_raw(b, *(ALGO_COLS_DIM[i] if i < 4 else (3,3) if i==5 else (0,1)))
     lp_led_raw(DELAY_BTN, 0, 3); lp_led_raw(REVERB_BTN, 0, 3)
-    lp_led_raw(EXIT_PWR_BTN, 3, 0)
+    if mode == "Mk2": lp.LedCtrlRaw(EXIT_PWR_BTN, 10, 10, 63)
+    else: lp_led_raw(EXIT_PWR_BTN, 1, 3)  
     
     last_event = time.time(); rhythm_sieve = 0
     while True:
         ev = lp.ButtonStateRaw()
         if ev:
             bid, state = ev[0], ev[1]
-            if bid == EXIT_PWR_BTN and state > 0: break
+            if bid == EXIT_PWR_BTN and state > 0:
+                print("--- System: Initiating 2s Fade Out and Shutdown ---")
+                master_vol_port.value = 0 # Triggers the Port ramp to 0
+                time.sleep(2.0)           # Duration of the fade
+                break
             
             if not is_fading:
                 # Top Buttons: Solo frequencies spotting
