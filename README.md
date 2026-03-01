@@ -399,6 +399,61 @@ Experiential psychoacoustic tests
 - Side Button 6: EXIT / POWER OFF (Blue/Cyan)
 ```
 
+# Entropic field
+The [entropic_field](entropic_field.py) script creates a chaotic motion of cells, initially stacked in two columns. You can select the initial layout, default to left which works also in stereo, when top or bottom, which goes from bright to dull tone or opposite, only works with 4 speakers; you may also experiment with reverb, delay and speed. Entropy increases and the cells move for about 4 minutes, reaching the opposite side.
+
+Buttons follow this schema:
+```
+Entropic field
+==========================================================================
+- Top Buttons 0-1: Scale Selection (Cycle SCALES_DICT, Green/Amber)
+- Top Buttons 2-3: Position Selection (Cycle LEFT/RIGHT/TOP/BOTTOM, Amber)
+- Top Buttons 6-7: Main Volume (Amber 60%, Adjusts user_vol)
+
+- Side Button 0: Start Sequence (Locks Setup Mode, Red/Green)
+- Side Button 1: Reverb Toggle (Cycle 0.0-0.7 Mix, Green/Amber/Red)
+- Side Button 2: Filter Toggle (Schumann Resonance 7.83Hz, Green/Amber)
+- Side Button 3: Delay Toggle (Temporal Delay 0.1s-0.2s, Green/Amber)
+- Side Button 6: EXIT / POWER OFF (Blue/Cyan - Matched to test_speakers)
+```
+
+<details>
+
+<summary>Scales</summary>
+
+```python
+SCALES_DICT = {
+    "Chromatic": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "Indian Bhairav": [0, 1.12, 3.86, 4.98, 7.02, 8.14, 10.88],
+    "Partch Otonality": [0, 2.04, 3.86, 4.98, 7.02, 8.84, 10.88],
+    "Partch Utonality": [0, 1.12, 3.16, 4.98, 7.02, 8.14, 9.96],
+    "Partch Diamond": [0, 1.51, 1.65, 1.82, 2.04, 2.31, 2.67, 3.18, 3.47, 3.86, 4.35, 4.98, 5.51, 6.49, 7.02, 7.65, 8.14, 8.53, 8.84, 9.33, 9.69, 9.96, 10.18, 10.35, 10.49, 10.88, 11.44],
+    "Young Lamonte": [0, 1.14, 3.86, 4.98, 7.02, 8.14, 10.88],
+    "31-TET Pure": [0, 1.93, 3.87, 5.03, 6.96, 8.90, 10.83],
+    "Bohlen-Pierce": [0, 1.46, 2.92, 4.38, 5.84, 7.30, 8.76, 10.22, 11.68],
+    "Carlos Alpha": [0, 0.78, 1.56, 2.34, 3.12, 3.90, 4.68, 5.46, 6.24, 7.02],
+    "Gamelan Slendro": [0, 2.4, 4.8, 7.2, 9.6],
+    "Random 1": sorted([0] + [round(random.uniform(0.5, 11.5), 2) for _ in range(6)]),
+}
+```
+</details><br>
+
+Example of default scale (Partch Otonality)
+```
+[Y]  TOP of Grid (High Pitch)
+   0 |  10/4    11/4    3/1     13/4* ...  <-- Higher Harmonics
+   1 |  8/4     9/4     10/4    11/4    ...  
+   2 |  6/4     7/4     8/4     9/4     ...  
+   3 |  4/4     5/4     6/4     7/4     ...  <-- Degree 0 (Root 1/1)
+   4 |  2/1     9/4     10/4    11/4    ...  
+   5 |  7/4     8/4     9/4     10/4    ...  
+   6 |  5/4     6/4     7/4     8/4     ...  
+   7 |  1/1     5/4     6/4     7/4     ...  <-- Root (4/4)
+     +--------------------------------------
+ [X]    0        1       2       3      RIGHT (+1 Degree)
+```
+
+
 [^1]: Schafer's definitive soundscape text "The Tuning of the World" was published in 1977 within the [World SoundScape Project](https://www.sfu.ca/~truax/wsp.html).
 [^2]: [Python 3.11](https://www.python.org/downloads/release/python-3111/)
 [^3]: A Novation Launchpad (and Midi Fighter) control suite for Python. If you ever dreamed of using your Launchpad for completely other stuff than music: Welcome !-) [FMMT666/launchpad.py](https://github.com/FMMT666/launchpad.py)]
