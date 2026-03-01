@@ -455,6 +455,19 @@ Example of default scale (Partch Otonality)
 ## Formalized music
 The [formalized_m](formalized_m.py) script retraces the main stages of Iannis Xenakis's text, arranging the iconic sounds in conflict with each other in quadraphonic sound, as is predictable, according to game theory; the grid is occupied with known statistical models and algorithms reported in the text.
 
+Buttons follow this schema:
+```
+Formalized music
+============================================================
+- Top Buttons 0-3: Momentary Channel Solo (Sine Wave, Red on press)
+- Top Button 4: Delay Multi-State (Cycle Off/Low/Mid/High, Green/Amber/Red)
+- Top Button 5: Reverb Multi-State (Cycle Off/Low/Mid/High, Green/Amber/Red)
+- Top Buttons 6-7: Main Volume (Amber 60%, Red at Peak)
+
+- Side Buttons 0-3: Toggle Stochastic Engines (Markov, Analog, GENDYN, Poisson)
+- Side Buttons 4-6: Density Selectors (Half, Normal, Double Density)
+- Side Button 7: EXIT / POWER OFF (Blue/Cyan, 2-sec Fade Out on press)
+```
 
 [^1]: Schafer's definitive soundscape text "The Tuning of the World" was published in 1977 within the [World SoundScape Project](https://www.sfu.ca/~truax/wsp.html).
 [^2]: [Python 3.11](https://www.python.org/downloads/release/python-3111/)

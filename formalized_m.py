@@ -3,6 +3,19 @@ import numpy as np
 from pyo import *
 import launchpad_py as launchpad
 
+"""
+Formalized music
+============================================================
+- Top Buttons 0-3: Momentary Channel Solo (Sine Wave, Red on press)
+- Top Button 4: Delay Multi-State (Cycle Off/Low/Mid/High, Green/Amber/Red)
+- Top Button 5: Reverb Multi-State (Cycle Off/Low/Mid/High, Green/Amber/Red)
+- Top Buttons 6-7: Main Volume (Amber 60%, Red at Peak)
+
+- Side Buttons 0-3: Toggle Stochastic Engines (Markov, Analog, GENDYN, Poisson)
+- Side Buttons 4-6: Density Selectors (Half, Normal, Double Density)
+- Side Button 7: EXIT / POWER OFF (Blue/Cyan, 2-sec Fade Out on press)
+"""
+
 AUDIO_DEVICE = 10
 AUDIO_HOST = 'asio'
 BUFFER_SIZE = 512 
