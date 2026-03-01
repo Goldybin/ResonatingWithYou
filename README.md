@@ -380,7 +380,7 @@ Stochastic Field
 ## Psychoacoustic Tests
 The [psychoa_test](psychoa_test.py) script is a series of psychoacoustic tests that offer the opportunity to gain experiential knowledge in the context of quadraphonic setup.
 
-Button follow this schema :
+Buttons follow this schema :
 ```
 Experiential psychoacoustic tests
 ============================================================
