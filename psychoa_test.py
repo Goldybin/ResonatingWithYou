@@ -50,7 +50,7 @@ EXIT_PWR_BTN = SIDE_BTNS[6]
 
 # --- 2. Audio Server ---
 s = Server(sr=48000, nchnls=4, duplex=0, buffersize=BUFFER_SIZE,winhost=AUDIO_HOST)
-s.setOutputDevice(10)
+s.setOutputDevice(AUDIO_DEVICE)
 s.deactivateMidi()
 s.boot().start()
 
