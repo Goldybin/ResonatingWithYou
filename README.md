@@ -453,7 +453,7 @@ Example of default scale (Partch Otonality)
  [X]    0        1       2       3      RIGHT (+1 Degree)
 ```
 ## Formalized music
-The [formalized_m](formalized_m.py) script retraces the main stages of Iannis Xenakis's text, arranging the iconic sounds in conflict with each other in quadraphonic sound, as is predictable, according to game theory; the grid is occupied with known statistical models and algorithms reported in the text.
+The [formalized_m](formalized_m.py) script retraces the main stages of Iannis Xenakis's text, arranging the iconic sounds in conflict with each other in quadraphonic sound, as is predictable, according to game theory; the grid is occupied with known statistical models and algorithms reported in the text[^6].
 
 Buttons follow this schema:
 ```
@@ -474,3 +474,4 @@ Formalized music
 [^3]: A Novation Launchpad (and Midi Fighter) control suite for Python. If you ever dreamed of using your Launchpad for completely other stuff than music: Welcome !-) [FMMT666/launchpad.py](https://github.com/FMMT666/launchpad.py)]
 [^4]: [PYO](https://belangeo.github.io/pyo/) is a Python module written in C to help digital signal processing script creation.
 [^5]: [The isomorphic note layout](https://hearandknow.wordpress.com/2014/03/15/the-isomorphic-note-layout/)
+[^6]: [Formalized Music](https://en.wikipedia.org/wiki/Formalized_Music)
