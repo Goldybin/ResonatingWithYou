@@ -452,6 +452,8 @@ Example of default scale (Partch Otonality)
      +--------------------------------------
  [X]    0        1       2       3      RIGHT (+1 Degree)
 ```
+## Formalized music
+The [formalized_m](formalized_m.py) script retraces the main stages of Iannis Xenakis's text, arranging the iconic sounds in conflict with each other in quadraphonic sound, as is predictable, according to game theory; the grid is occupied with known statistical models and algorithms reported in the text.
 
 
 [^1]: Schafer's definitive soundscape text "The Tuning of the World" was published in 1977 within the [World SoundScape Project](https://www.sfu.ca/~truax/wsp.html).
