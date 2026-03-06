@@ -1,3 +1,26 @@
+## Adaptation of ResonatingWithYou (huge thanks to Yeshi Namkhai!) for MacOS+Windows, Launchpad MK3 Pro (other launchpads remained) and emulation through regular computer keyboard, virtual quadrophonic setup for headphones
+
+### For MacOS you need:
+brew install portmidi portaudio liblo libsndfile numpy blackhole-16ch
+Python 3.12, not newer!
+Blackhole (https://github.com/ExistentialAudio/BlackHole) + Kushview Element (https://github.com/kushview/element)
+DearVR Pro2 plugin (https://www.sennheiser.com/globalassets/digizuite/50037-en-dearVR_PRO_2.zip) - it became totally free to use, not a paid plugin any longer
+
+This is how your Element setup should look like for a quadrophonic emulation with any good (ideally open) headphones (I'm using Sennheiser HD 560S)
+<img width="640" height="350" alt="image" src="https://github.com/user-attachments/assets/fe2fd8d2-ea18-4de5-9e46-ef6586f1589c" />
+
+<img width="447" height="179" alt="image" src="https://github.com/user-attachments/assets/cab0dc16-944d-4823-97da-ed149b8cad4b" />
+(output: your headphones)
+
+Settings for all 4 plugins:
+<img width="949" height="411" alt="image" src="https://github.com/user-attachments/assets/4cf039a0-44a0-4b0b-89b5-b46dcf7249e8" />
+<img width="941" height="405" alt="image" src="https://github.com/user-attachments/assets/2b42c25e-434d-4be3-a8d7-9dd27334e177" />
+<img width="941" height="403" alt="image" src="https://github.com/user-attachments/assets/3e04067c-5964-4da5-b881-a5ee6c2689af" />
+<img width="943" height="412" alt="image" src="https://github.com/user-attachments/assets/e568284b-d462-4733-a54a-9f240f0ad91d" />
+(you can also play with the distance and the settings by yourself)
+
+Remember: Blackhole inputs 1-4 should go into only 1 input channel per plugin, and both outputs from plugins should go into the final audio output (your headphones).
+
 # Resonating With You
 Welcome to the repository for **Resonating With You**, an event taking place in February 2026 at Dzamling Gar, offering an immersive sound experience designed to help you truly understand yourself and the characteristics of your perception of the world. It is intended for reflective individuals, those familiar with meditation, and researchers who wish to explore their work—the process of making sense of their data, experientially, through sound.
 
