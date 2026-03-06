@@ -11,6 +11,10 @@
   Kushview Element (https://github.com/kushview/element)
   
   DearVR Pro 2 plugin (https://www.sennheiser.com/globalassets/digizuite/50037-en-dearVR_PRO_2.zip) - it became totally free to use, not a paid plugin any longer
+
+  #### IMPORTANT: In order to achieve the full quadrophonic emulation, you need to select the right device ID (Blackhole) from the list of available audio devices, and set the number of channels to 4, for example like this:
+  
+      python3 beings_field2.py -c 4 -d 5
   
 
 
