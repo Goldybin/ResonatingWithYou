@@ -377,6 +377,36 @@ Stochastic Field
             Dim color = Ready; Bright color = Triggering; Red = Scale Root
 ```
 
+## Living beings field
+
+```
+ --- Living Beings Field: 
+====================================================================================================
+Top Buttons   0: Delay Multi-State (Cycle Off/Circular/Ping-Pong, Green/Red/Amber)
+Top Button    1: FM Collision Toggle (Red = Enabled, Green = Disabled)
+Top Button    2: Warp Jump (Randomly relocates all active balls, Red while running)
+Top Button    3: Granulator Multi-State (Cycle Off/Random Pos/Random All, Green/Red/Amber)
+Top Button    4: Wrap/No-Walls Toggle (Red = Enabled, Green = Disabled, 8s Lock)
+Top Button    5: Obstacle Multi-State (Cycle Idle/Remove All/Relocate All, Green/Red/Amber)
+Top Buttons 6-7: Master Volume (Decrease/Increase by 0.05, Color reflects level)
+(all top buttons have 8s Lock, except for volume)
+
+Side Buttons 0-1: Trigger/Kill being (Very Highs)
+Side Buttons 2-3: Trigger/Kill being (Mids)
+Side Button    4: Trigger/Kill being (Percussions)
+Side Button    5: Trigger/Kill being (Drums)
+Side Buttons 6-7: Trigger/Kill being (Lows)
+
+Main Grid (8x8):
+- Press Empty Cell: Toggle Static Obstacle (Amber LED)
+- Active Balls: Real-time position tracking (Unique colors per ball index)
+
+Life Expectancy (shown at start):
+- FEW COLUMNS (e.g., 1): Balls lose energy quickly and stop soon.
+- MANY COLUMNS (e.g., 8): Balls lose energy very slowly, moving for a long time.
+====================================================================================================
+```
+
 ## Psychoacoustic Tests
 The [psychoa_test](psychoa_test.py) script is a series of psychoacoustic tests that offer the opportunity to gain experiential knowledge in the context of quadraphonic setup.
 
@@ -399,7 +429,7 @@ Experiential psychoacoustic tests
 - Side Button 6: EXIT / POWER OFF (Blue/Cyan)
 ```
 
-# Entropic field
+## Entropic field
 The [entropic_field](entropic_field.py) script creates a chaotic motion of cells, initially stacked in two columns. You can select the initial layout, default to left which works also in stereo, when top or bottom, which goes from bright to dull tone or opposite, only works with 4 speakers; you may also experiment with reverb, delay and speed. Entropy increases and the cells move for about 4 minutes, reaching the opposite side.
 
 Buttons follow this schema:
