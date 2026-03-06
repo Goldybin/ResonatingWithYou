@@ -10,7 +10,7 @@
   
   Kushview Element (https://github.com/kushview/element)
   
-  DearVR Pro2 plugin (https://www.sennheiser.com/globalassets/digizuite/50037-en-dearVR_PRO_2.zip) - it became totally free to use, not a paid plugin any longer
+  DearVR Pro 2 plugin (https://www.sennheiser.com/globalassets/digizuite/50037-en-dearVR_PRO_2.zip) - it became totally free to use, not a paid plugin any longer
   
 
 
