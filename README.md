@@ -519,9 +519,9 @@ The [chnn_scan](chnn_scan.py) script is a quadraphonic image-to-sound sonifier. 
 <p><img src="https://raw.githubusercontent.com/YeshiNamkhai/ResonatingWithYou/refs/heads/main/201310%20ChNN%20Barcelona%20by%20Paolo%20Fassoli_09_square_BW.jpg" width="150"></p>
 
 Auditory display: 
-- Pitch: Brightness (grayscale value) determines the frequency.
-- Timbre: The RGB balance controls the number of harmonics (harms) in the waveform.
-- Spatialization: The pixel's Y-coordinate crossfades sound between front and rear speakers, while the X-coordinate pans between left and right.
+* Pitch depends on brightness (grayscale value) determines the frequency.
+* Timbre depends on RGB values which controls the number of harmonics in the waveform.
+* Spatialization depends on pixel's Y-coordinate for front and rear speakers, X-coordinate for left and right.
 
 
 ## Generative field
