@@ -26,8 +26,10 @@ except ImportError:
 
 """
 Experiential psychoacoustic tests
-============================================================
-
+============================================================================
+This script is a series of psychoacoustic tests that offer the opportunity 
+to gain experiential knowledge in the context of quadraphonic setup.
+============================================================================
 - Top Buttons 0-3: Momentary Channel Solo (Sine Wave, Red)
 - Top Button 4: Toggles Auto-Scan (Pink Noise, Green/Red)
 - Top Button 5: Toggles Manual Mode (Sine Wave over Grid, Green/Red)
@@ -274,6 +276,21 @@ class LaunchpadPyWrapper:
 
 print("\n" + "=" * 50)
 print(" Psychoacoustic Tests - Multi-Channel Audio")
+print("============================================================================")
+print("This script is a series of psychoacoustic tests that offer the opportunity ")
+print("to gain experiential knowledge in the context of quadraphonic setup.")
+print("============================================================================")
+print("- Top Buttons 0-3: Momentary Channel Solo (Sine Wave, Red)")
+print("- Top Button 4: Toggles Auto-Scan (Pink Noise, Green/Red)")
+print("- Top Button 5: Toggles Manual Mode (Sine Wave over Grid, Green/Red)")
+print("- Top Buttons 6-7: Master Volume")
+print("- Side Button 0: Doppler (Cycle: Low -> Mid -> High -> Off)")
+print("- Side Button 1: Binaural Beats (Cycle: 36Hz -> 72Hz -> 108Hz -> Off)")
+print("- Side Button 2: Toggles Ascending Shepherd (Green)")
+print("- Side Button 3: Toggles Descending Shepherd (Green)")
+print("- Side Button 4: Toggles Risset Accelerando (Blue)")
+print("- Side Button 5: Toggles Risset Decelerando (Blue)")
+print("- Side Button 6: EXIT / POWER OFF (Blue/Cyan)")
 
 print("\n" + "=" * 50)
 print(" COMMAND LINE ARGUMENTS:")

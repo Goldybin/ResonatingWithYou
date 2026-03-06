@@ -243,6 +243,17 @@ class LaunchpadPyWrapper:
 
 print("\n" + "=" * 50)
 print(" Generative Field - Walker Audio")
+print("====================================================================================")
+print("This script creates walker logic to navigate a stochastic soundscape, where four ")
+print("independent algorithmic agents move across an 8x8 grid to trigger and spatialize sound.")
+print("====================================================================================")
+print("- Top Buttons 0-3: Momentary Channel Solo (Sine Wave, Red on press)")
+print("- Top Button 4: Delay Multi-State (Cycle Off/Low/Mid/High, Green/Amber/Red)")
+print("- Top Button 5: Reverb Multi-State (Cycle Off/Low/Mid/High, Green/Amber/Red)")
+print("- Top Buttons 6-7: Main Volume (Amber 60%, Red at Peak)")
+print("- Side Buttons 0-3: Toggle Algorithmic Walkers (Markov, Brownian, Fractal, Genetic)")
+print("- Side Buttons 4-6: Speed Selectors (Half, Normal, Double Schumann Speed)")
+print("- Side Button 7: EXIT / POWER OFF (Blue/Cyan on Mk2, 2-sec Fade Out on press)")
 
 print("\n" + "=" * 50)
 print(" COMMAND LINE ARGUMENTS:")
