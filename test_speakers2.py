@@ -329,6 +329,17 @@ class LaunchpadPyWrapper:
 
 print("\n" + "="*50)
 print(" 4-Channel Audio & Grid Test")
+print("============================================================")
+print("- Universal Launchpad Support (Mk1, Mk2, Pro, MK3 Pro)")
+print("- Auto detection 2 or 4 channel sounds")
+print("- Cross-platform Keyboard Emulation (Windows & macOS)")
+print("- 64-Key Full Grid Mapping")
+print("- Global ESC key to exit with ANSI-sequence filtering")
+print("- Top Buttons 0-3: Momentary Channel Solo (Sine Wave, Red on press)")
+print("- Top Button 4: Toggles Auto-Scan (Pink Noise, Green/Red)")
+print("- Top Button 5: Toggles Manual Mode (Sine Wave, Green/Red)")
+print("- Top Buttons 6-7: Main Volume (Amber 60%)")
+print("- Side Button 6: EXIT / POWER OFF (Blue/Cyan)")
 
 print("\n" + "="*50)
 print(" COMMAND LINE ARGUMENTS:")
