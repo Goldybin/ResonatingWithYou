@@ -1,4 +1,4 @@
-## Adaptation of ResonatingWithYou (huge thanks to Yeshi Namkhai!) for MacOS+Windows, Launchpad MK3 Pro (other launchpads remained) and emulation through regular computer keyboard, virtual quadrophonic setup for headphones
+## Adaptation of ResonatingWithYou (huge thanks to Yeshi Namkhai!) for MacOS+Windows, Launchpad MK3 Pro (other launchpads remained) and emulation through regular computer keyboard, plus virtual quadrophonic setup for headphones
 
 ### For MacOS you need:
 brew install portmidi portaudio liblo libsndfile numpy blackhole-16ch
