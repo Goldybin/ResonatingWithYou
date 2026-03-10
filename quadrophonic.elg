@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Node version="1" type="Graph" uuid="32d5d4c49237494fb6eaf48275e0af4f"
+      name="Graph" bypass="0" persistent="1" renderMode="single" keyStart="0"
+      keyEnd="127" transpose="0" delayCompensation="0" tempo="120.0">
+  <nodes>
+    <Node id="1" format="Internal" identifier="audio.input" type="plugin"
+          name="" relativeX="0.3051948051948052" relativeY="0.3190184049079755"
+          pluginIdentifierString="Internal--da9d27b2-0" uuid="edfd0fd789d04aa0b7efd4b0c85ad970"
+          bypass="0" persistent="1" renderMode="single" keyStart="0" keyEnd="127"
+          transpose="0" delayCompensation="0.0" tempo="120.0" x="237.0"
+          y="187.0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="" oversamplingFactor="1"
+          enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block displayMode="compact" portAlignment="before" hiddenPorts="audio_in_5,audio_in_6,audio_in_7,audio_in_8,audio_in_9,audio_in_10,audio_in_11,audio_in_12,audio_in_13,audio_in_14,audio_in_15,audio_in_16"/>
+      </ui>
+      <ports>
+        <Port index="0" channel="0" type="audio" name="Audio In 1" symbol="audio_in_1"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="1" channel="1" type="audio" name="Audio In 2" symbol="audio_in_2"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="2" channel="2" type="audio" name="Audio In 3" symbol="audio_in_3"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="3" channel="3" type="audio" name="Audio In 4" symbol="audio_in_4"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="4" channel="4" type="audio" name="Audio In 5" symbol="audio_in_5"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="5" channel="5" type="audio" name="Audio In 6" symbol="audio_in_6"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="6" channel="6" type="audio" name="Audio In 7" symbol="audio_in_7"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="7" channel="7" type="audio" name="Audio In 8" symbol="audio_in_8"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="8" channel="8" type="audio" name="Audio In 9" symbol="audio_in_9"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="9" channel="9" type="audio" name="Audio In 10" symbol="audio_in_10"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="10" channel="10" type="audio" name="Audio In 11" symbol="audio_in_11"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="11" channel="11" type="audio" name="Audio In 12" symbol="audio_in_12"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="12" channel="12" type="audio" name="Audio In 13" symbol="audio_in_13"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="13" channel="13" type="audio" name="Audio In 14" symbol="audio_in_14"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="14" channel="14" type="audio" name="Audio In 15" symbol="audio_in_15"
+              flow="output" hiddenOnBlock="1"/>
+        <Port index="15" channel="15" type="audio" name="Audio In 16" symbol="audio_in_16"
+              flow="output" hiddenOnBlock="1"/>
+      </ports>
+    </Node>
+    <Node id="2" format="Internal" identifier="audio.output" type="plugin"
+          name="" relativeX="0.3127705627705628" relativeY="0.7147239263803681"
+          pluginIdentifierString="Internal--83a94619-0" uuid="fd2f4d1a43334968ae9bc13d2ff2dffa"
+          bypass="0" persistent="1" renderMode="single" keyStart="0" keyEnd="127"
+          transpose="0" delayCompensation="0.0" tempo="120.0" x="244.0"
+          y="445.0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="" oversamplingFactor="1"
+          enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block displayMode="compact" portAlignment="before"/>
+      </ui>
+      <ports>
+        <Port index="0" channel="0" type="audio" name="Audio Out 1" symbol="audio_out_1"
+              flow="input" hiddenOnBlock="0"/>
+        <Port index="1" channel="1" type="audio" name="Audio Out 2" symbol="audio_out_2"
+              flow="input" hiddenOnBlock="0"/>
+      </ports>
+    </Node>
+    <Node id="3" format="Internal" identifier="midi.input" type="plugin"
+          name="" relativeX="0.7878787878787878" relativeY="0.1380368098159509"
+          pluginIdentifierString="Internal--6e34cabd-0" uuid="734c4ee8a41b4cadb04a0b68e1df87bb"
+          bypass="0" persistent="1" renderMode="single" keyStart="0" keyEnd="127"
+          transpose="0" delayCompensation="0.0" tempo="120.0" x="683.0"
+          y="69.0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="" oversamplingFactor="1"
+          enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block displayMode="compact" portAlignment="before"/>
+      </ui>
+      <ports>
+        <Port index="0" channel="0" type="midi" name="MIDI In 1" symbol="midi_in_1"
+              flow="output" hiddenOnBlock="0"/>
+      </ports>
+    </Node>
+    <Node id="4" format="Internal" identifier="midi.output" type="plugin"
+          name="" relativeX="0.7489177489177489" relativeY="0.9049079754601227"
+          pluginIdentifierString="Internal--6306046e-0" uuid="de1830027c444bb9b810dc1ebe26c8c1"
+          bypass="0" persistent="1" renderMode="single" keyStart="0" keyEnd="127"
+          transpose="0" delayCompensation="0.0" tempo="120.0" x="647.0"
+          y="569.0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="" oversamplingFactor="1"
+          enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block displayMode="compact" portAlignment="before"/>
+      </ui>
+      <ports>
+        <Port index="0" channel="0" type="midi" name="MIDI Out 1" symbol="midi_out_1"
+              flow="input" hiddenOnBlock="0"/>
+      </ports>
+    </Node>
+    <Node id="5" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
+          type="plugin" name="dearVR PRO 2" relativeX="0.2067099567099567"
+          relativeY="0.4355828220858896" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
+          uuid="0351e5d47f824225b6c6432280119547" bypass="0" persistent="1"
+          renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+          tempo="120.0" x="146.0" y="254.0" windowX="531" windowY="302"
+          windowVisible="0" state="1531.VMjLgHeA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1LiKV0jZLcFR43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2L3wjLTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MCdLgmKo0DdhkGSzPTdLkmY4wjdlkGSyXVZMICRBgTVvjFR1MiTMglKnYENHIDSzgUdLECSC0TdHMTS1IVdLIiZSwDLtjGSz3RZMglKBE0aIcUVoEkLQc1ZrEFNHIDSzY1PLYmKCwjctLES2oVZLYmZowzLpMUSv3xPNglKRAUMqYUXvD0QZMUSVgkbUY0Sn4RZKgGSCwjLXMkS34RZLcGQ4wzcTMESvP0PLgmZogjYPQkV4E0UXQWSVk0TMYEVxUkUOglKosjcpMkS1o1TNYmZS4TLLkVS1IVdMMiYCwzLTMkSn4BdSkVSFEFLMckV0QiUOglKogjYXUkV3E0Uic1cVAUZ3X0X4E0UZkVSW8DZtj1R4QzPMYmKCwjcDMDS5o1PLoGQ40jdlMDS5IVZHYFRvDVcvDCUu81UYgCRRwDZtfFUqk0UYgWRwLkSvjFR1gjPHIUUrM1ZI0FVGUjUZQGLogjcyHUSvP0PMkmXC0jdTkVS54xTMECSS4TLPMjS5gjPHIUUrM1ZI0FVLgSLiAUQwHVdvjFR2gjPHIUUrM1ZI0FVHsVLY4VPUgUdMc0Sn4RZHYFRUkEa2YUVoE0UZUGMwLkSvjFR1gjPHIUUrkkbUECV5sVLgQ2XTg0azX0Sn4RZKMiKCwjctLDS1QzTLQCRCwDMHMjSzP0TMYmYogjYHUUVrcmUYkVTWoUczXzT0M1QTcVSxHFNHIESn4BZTsVVFE1ZMYzXugCaggzZwjkaAUEV40zUOglKogjYHUUVmcmQU8FLVkUPU0lXmcmUZUSQFM1a3vVX3fjTLglKBUUcAISUmcmQggCRBwDcDMjS4wTdLkGS4wjLLMDSwnVdMECSSwzLLkVSn4BZPUWTGMVcvDSUmcmQggCRBwDctLUSzn1TNQiZS4zLXMUSyX1TNACTS4DdTMUS5gjPHYTRxDFcQISUmcmQggCRBwDcHMjS4wTdLkGS4wzcLMTSwP0TLcmYC0jclkFSn4BZPcVSwn0UEYTXxASZHY2LnwTLXkVSwfUZMMiKS0jLPMTS2I1TLcGTowTLHIDRLUEaYo2XUgkb2Y0Sn4RZKkGVo0TLXkVSwH1PMECQ4wDMTkFSwvTZMICRogjYHUkVsclQicUQFElbvjFR1MCdLomZS4DMpMkSz.0PLkmZS0TdTMUS3gzPMECRBgjPqcjXm0jLhgCRBwDZtfFTm0jLhIDNwDVdQc0Sn4RZHYlKUkEdYESX3AiUXQWSVkUS3XTVqASZHYGRBgzTQcUV3UULgc0ZFkkdmY0Sn4RZHYldTgUdQcUV3MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYlcpk0ZiQEVuQiUOglKogjYLQTXmkzUZo2ZW8DZtjFRlY1UjAUQFkkUqYUVx.SZHYGRBgzLqcDUmEEaVUGNVEFNHgFSncCZO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
+          program="0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="52.3o8Jnn7SunDysXFXfQFK.BaFXjY3rXkQF.BxKwbSkAFYhUFJtjDKAHKVX0.8XfA.h2YCaB"
+          oversamplingFactor="1" enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+               portAlignment="before"/>
+      </ui>
+      <buses>
+        <inputs>
+          <AudioChannelSet arrangement="C"/>
+        </inputs>
+        <outputs>
+          <AudioChannelSet arrangement="L R"/>
+        </outputs>
+      </buses>
+      <ports>
+        <Port index="0" channel="0" type="audio" name="Input 1" symbol="audio_in_1"
+              flow="input" hiddenOnBlock="0"/>
+        <Port index="1" channel="0" type="audio" name="Output 1" symbol="audio_out_1"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="2" channel="1" type="audio" name="Output 2" symbol="audio_out_2"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="3" channel="0" type="control" name="Coordinate System"
+              symbol="control_0" flow="input" hiddenOnBlock="1"/>
+        <Port index="4" channel="1" type="control" name="Azimuth" symbol="control_1"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="5" channel="2" type="control" name="Elevation" symbol="control_2"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="6" channel="3" type="control" name="Distance" symbol="control_3"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="7" channel="4" type="control" name="X" symbol="control_4"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="8" channel="5" type="control" name="Y" symbol="control_5"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="9" channel="6" type="control" name="Z" symbol="control_6"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="10" channel="7" type="control" name="Direct Gain" symbol="control_7"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="11" channel="8" type="control" name="Azimuth Scale" symbol="control_8"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="12" channel="9" type="control" name="Distance Scale" symbol="control_9"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="13" channel="10" type="control" name="Occlusion" symbol="control_10"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="14" channel="11" type="control" name="Virtual Acoustics"
+              symbol="control_11" flow="input" hiddenOnBlock="1"/>
+        <Port index="15" channel="12" type="control" name="Room Size" symbol="control_12"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="16" channel="13" type="control" name="Reverb" symbol="control_13"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="17" channel="14" type="control" name="Reverb Gain" symbol="control_14"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="18" channel="15" type="control" name="Reverb Low Pass"
+              symbol="control_15" flow="input" hiddenOnBlock="1"/>
+        <Port index="19" channel="16" type="control" name="Reverb High Pass"
+              symbol="control_16" flow="input" hiddenOnBlock="1"/>
+        <Port index="20" channel="17" type="control" name="Reflection" symbol="control_17"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="21" channel="18" type="control" name="Reflection Gain"
+              symbol="control_18" flow="input" hiddenOnBlock="1"/>
+        <Port index="22" channel="19" type="control" name="Reflection Low Pass"
+              symbol="control_19" flow="input" hiddenOnBlock="1"/>
+        <Port index="23" channel="20" type="control" name="Reflection High Pass"
+              symbol="control_20" flow="input" hiddenOnBlock="1"/>
+        <Port index="24" channel="21" type="control" name="Real-time Auralization"
+              symbol="control_21" flow="input" hiddenOnBlock="1"/>
+        <Port index="25" channel="22" type="control" name="Top Wall" symbol="control_22"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="26" channel="23" type="control" name="Bottom Wall" symbol="control_23"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="27" channel="24" type="control" name="Front Wall" symbol="control_24"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="28" channel="25" type="control" name="Back Wall" symbol="control_25"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="29" channel="26" type="control" name="Left Wall" symbol="control_26"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="30" channel="27" type="control" name="Right Wall" symbol="control_27"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="31" channel="28" type="control" name="Bypass" symbol="control_28"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="32" channel="29" type="control" name="Bass Boost" symbol="control_29"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="33" channel="30" type="control" name="Performance Mode"
+              symbol="control_30" flow="input" hiddenOnBlock="1"/>
+        <Port index="34" channel="31" type="control" name="Stereo Width" symbol="control_31"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="35" channel="32" type="control" name="Master Gain" symbol="control_32"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="36" channel="33" type="control" name="LFE Gain" symbol="control_33"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="37" channel="34" type="control" name="Clarity" symbol="control_34"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
+              flow="input" hiddenOnBlock="0"/>
+      </ports>
+    </Node>
+    <Node id="6" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
+          type="plugin" name="dearVR PRO 2" relativeX="0.4166666666666667"
+          relativeY="0.4371165644171779" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
+          uuid="f2f9c7c491a447c59f248ecc72ab4e72" bypass="0" persistent="1"
+          renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+          tempo="120.0" x="340.0" y="255.0" windowX="356" windowY="112"
+          windowVisible="0" state="1531.VMjLgHeA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1LiKV0jZLcFR43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2Ln0DdTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MCZMICQ40jLHMDSwfTdMIiYC0jLHMkS14RdLQCRBgTVvjFR1MiTMglKnYENHIDSzgUdLMCT4wDdXkFS2o1TMAiY40zcTMjS34RdLglKBE0aIcUVoEkLQc1ZrEFNHIDSzY1PLYmKCwjctLES2oVZLYmZowzLpMUSv3xPNglKRAUMqYUXvD0QZMUSVgkbUY0Sn4RZKgGSCwjLXMkS34RZLcGQ4wzcTMESvP0PLgmZogjYPQkV4E0UXQWSVk0TMYEVxUkUOglKosjcpMkS1o1TNYmZS4TLLkVS1IVdMMiYCwzLTMkSn4BdSkVSFEFLMckV0QiUOglKogjYXUkV3E0Uic1cVAUZ3X0X4E0UZkVSW8DZtj1R4QzPMYmKCwjcDMDS5o1PLoGQ40jdlMDS5IVZHYFRvDVcvDCUu81UYgCRRwDZtfFUqk0UYgWRwLkSvjFR1gjPHIUUrM1ZI0FVGUjUZQGLogjcyHUS4g0PLECRC0jLpMDS2o1TLECUCwTdpMDSwfjPHIUUrM1ZI0FVLgSLiAUQwHVdvjFR2gjPHIUUrM1ZI0FVHsVLY4VPUgUdMc0Sn4RZHYFRUkEa2YUVoE0UZUGMwLkSvjFR1gjPHIUUrkkbUECV5sVLgQ2XTg0azX0Sn4RZKMiKCwjctLDS1QzTLQCRCwDMHMjSzP0TMYmYogjYHUUVrcmUYkVTWoUczXzT0M1QTcVSxHFNHIESn4BZTsVVFE1ZMYzXugCaggzZwjkaAUEV40zUOglKogjYHUUVmcmQU8FLVkUPU0lXmcmUZUSQFM1a3vVX3fjTLglKBUUcAISUmcmQggCRBwDcDMjS4wTdLkGS4wjLLMDSwnVdMECSSwzLLkVSn4BZPUWTGMVcvDSUmcmQggCRBwDctLUSzn1TNQiZS4zLXMUSyX1TNACTS4DdTMUS5gjPHYTRxDFcQISUmcmQggCRBwDcHMjS4wTdLkGS4wzcLMTSwP0TLcmYC0jclkFSn4BZPcVSwn0UEYTXxASZHY2LnwTLXkVSwfUZMMiKS0jLPMTS2I1TLcGTowTLHIDRLUEaYo2XUgkb2Y0Sn4RZKkGVo0TLXkVSwH1PMECQ4wDMTkFSwvTZMICRogjYHUkVsclQicUQFElbvjFR1MCdLomZS4DMpMkSz.0PLkmZS0TdTMUS3gzPMECRBgjPqcjXm0jLhgCRBwDZtfFTm0jLhIDNwDVdQc0Sn4RZHYlKUkEdYESX3AiUXQWSVkUS3XTVqASZHYGRBgzTQcUV3UULgc0ZFkkdmY0Sn4RZHYldTgUdQcUV3MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYlcpk0ZiQEVuQiUOglKogjYLQTXmkzUZo2ZW8DZtjFRlY1UjAUQFkkUqYUVx.SZHYGRBgzLqcDUmEEaVUGNVEFNHgFSncCZO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
+          program="0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="52.3o8Jnn7SunDysXFXfQFK.BaFXjY3rXkQF.BxKwbSkAFYhUFJtjDKAHKVX0.8XfA.h2YCaB"
+          oversamplingFactor="1" enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+               portAlignment="before"/>
+      </ui>
+      <buses>
+        <inputs>
+          <AudioChannelSet arrangement="C"/>
+        </inputs>
+        <outputs>
+          <AudioChannelSet arrangement="L R"/>
+        </outputs>
+      </buses>
+      <ports>
+        <Port index="0" channel="0" type="audio" name="Input 1" symbol="audio_in_1"
+              flow="input" hiddenOnBlock="0"/>
+        <Port index="1" channel="0" type="audio" name="Output 1" symbol="audio_out_1"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="2" channel="1" type="audio" name="Output 2" symbol="audio_out_2"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="3" channel="0" type="control" name="Coordinate System"
+              symbol="control_0" flow="input" hiddenOnBlock="1"/>
+        <Port index="4" channel="1" type="control" name="Azimuth" symbol="control_1"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="5" channel="2" type="control" name="Elevation" symbol="control_2"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="6" channel="3" type="control" name="Distance" symbol="control_3"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="7" channel="4" type="control" name="X" symbol="control_4"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="8" channel="5" type="control" name="Y" symbol="control_5"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="9" channel="6" type="control" name="Z" symbol="control_6"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="10" channel="7" type="control" name="Direct Gain" symbol="control_7"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="11" channel="8" type="control" name="Azimuth Scale" symbol="control_8"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="12" channel="9" type="control" name="Distance Scale" symbol="control_9"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="13" channel="10" type="control" name="Occlusion" symbol="control_10"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="14" channel="11" type="control" name="Virtual Acoustics"
+              symbol="control_11" flow="input" hiddenOnBlock="1"/>
+        <Port index="15" channel="12" type="control" name="Room Size" symbol="control_12"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="16" channel="13" type="control" name="Reverb" symbol="control_13"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="17" channel="14" type="control" name="Reverb Gain" symbol="control_14"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="18" channel="15" type="control" name="Reverb Low Pass"
+              symbol="control_15" flow="input" hiddenOnBlock="1"/>
+        <Port index="19" channel="16" type="control" name="Reverb High Pass"
+              symbol="control_16" flow="input" hiddenOnBlock="1"/>
+        <Port index="20" channel="17" type="control" name="Reflection" symbol="control_17"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="21" channel="18" type="control" name="Reflection Gain"
+              symbol="control_18" flow="input" hiddenOnBlock="1"/>
+        <Port index="22" channel="19" type="control" name="Reflection Low Pass"
+              symbol="control_19" flow="input" hiddenOnBlock="1"/>
+        <Port index="23" channel="20" type="control" name="Reflection High Pass"
+              symbol="control_20" flow="input" hiddenOnBlock="1"/>
+        <Port index="24" channel="21" type="control" name="Real-time Auralization"
+              symbol="control_21" flow="input" hiddenOnBlock="1"/>
+        <Port index="25" channel="22" type="control" name="Top Wall" symbol="control_22"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="26" channel="23" type="control" name="Bottom Wall" symbol="control_23"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="27" channel="24" type="control" name="Front Wall" symbol="control_24"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="28" channel="25" type="control" name="Back Wall" symbol="control_25"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="29" channel="26" type="control" name="Left Wall" symbol="control_26"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="30" channel="27" type="control" name="Right Wall" symbol="control_27"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="31" channel="28" type="control" name="Bypass" symbol="control_28"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="32" channel="29" type="control" name="Bass Boost" symbol="control_29"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="33" channel="30" type="control" name="Performance Mode"
+              symbol="control_30" flow="input" hiddenOnBlock="1"/>
+        <Port index="34" channel="31" type="control" name="Stereo Width" symbol="control_31"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="35" channel="32" type="control" name="Master Gain" symbol="control_32"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="36" channel="33" type="control" name="LFE Gain" symbol="control_33"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="37" channel="34" type="control" name="Clarity" symbol="control_34"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
+              flow="input" hiddenOnBlock="0"/>
+      </ports>
+    </Node>
+    <Node id="7" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
+          type="plugin" name="dearVR PRO 2" relativeX="0.211038961038961"
+          relativeY="0.5736196319018405" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
+          uuid="f0d6752282d3476393271c95995f39dc" bypass="0" persistent="1"
+          renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+          tempo="120.0" x="150.0" y="344.0" windowX="525" windowY="371"
+          windowVisible="0" state="1531.VMjLgHeA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1LiKV0jZLcFR43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2LRwDdTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MiPMkGTowjdDkWSxPTZMQiXS4DMlMDS5g0PNMCRBgTVvjFR1MiTMglKnYENHIDSzA0PMcGRo0TLpMUS4o1PMACQS0DMpMES3QzTLglKBE0aIcUVoEkLQc1ZrEFNHIDSzY1PLYmKCwjctLES2oVZLYmZowzLpMUSv3xPNglKRAUMqYUXvD0QZMUSVgkbUY0Sn4RZKgGSCwjLXMkS34RZLcGQ4wzcTMESvP0PLgmZogjYPQkV4E0UXQWSVk0TMYEVxUkUOglKosjcpMkS1o1TNYmZS4TLLkVS1IVdMMiYCwzLTMkSn4BdSkVSFEFLMckV0QiUOglKogjYXUkV3E0Uic1cVAUZ3X0X4E0UZkVSW8DZtj1R4QzPMYmKCwjcDMDS5o1PLoGQ40jdlMDS5IVZHYFRvDVcvDCUu81UYgCRRwDZtfFUqk0UYgWRwLkSvjFR1gjPHIUUrM1ZI0FVGUjUZQGLogjcyHUS2AUdLAiZ4wDLPMkSxfzPNkmZ4wDLTMTSxfjPHIUUrM1ZI0FVLgSLiAUQwHVdvjFR2gjPHIUUrM1ZI0FVHsVLY4VPUgUdMc0Sn4RZHYFRUkEa2YUVoE0UZUGMwLkSvjFR1gjPHIUUrkkbUECV5sVLgQ2XTg0azX0Sn4RZKMiKCwjctLDS1QzTLQCRCwDMHMjSzP0TMYmYogjYHUUVrcmUYkVTWoUczXzT0M1QTcVSxHFNHIESn4BZTsVVFE1ZMYzXugCaggzZwjkaAUEV40zUOglKogjYHUUVmcmQU8FLVkUPU0lXmcmUZUSQFM1a3vVX3fjTLglKBUUcAISUmcmQggCRBwDcDMjS4wTdLkGS4wjLLMDSwnVdMECSSwzLLkVSn4BZPUWTGMVcvDSUmcmQggCRBwDctLUSzn1TNQiZS4zLXMUSyX1TNACTS4DdTMUS5gjPHYTRxDFcQISUmcmQggCRBwDcHMjS4wTdLkGS4wzcLMTSwP0TLcmYC0jclkFSn4BZPcVSwn0UEYTXxASZHY2LnwTLXkVSwfUZMMiKS0jLPMTS2I1TLcGTowTLHIDRLUEaYo2XUgkb2Y0Sn4RZKkGVo0TLXkVSwH1PMECQ4wDMTkFSwvTZMICRogjYHUkVsclQicUQFElbvjFR1MCdLomZS4DMpMkSz.0PLkmZS0TdTMUS3gzPMECRBgjPqcjXm0jLhgCRBwDZtfFTm0jLhIDNwDVdQc0Sn4RZHYlKUkEdYESX3AiUXQWSVkUS3XTVqASZHYGRBgzTQcUV3UULgc0ZFkkdmY0Sn4RZHYldTgUdQcUV3MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYlcpk0ZiQEVuQiUOglKogjYLQTXmkzUZo2ZW8DZtjFRlY1UjAUQFkkUqYUVx.SZHYGRBgzLqcDUmEEaVUGNVEFNHgFSncCZO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
+          program="0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="52.3o8Jnn7SunDysXFXfQFK.BaFXjY3rXkQF.BxKwbSkAFYhUFJtjDKAHKVX0.8XfA.h2YCaB"
+          oversamplingFactor="1" enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+               portAlignment="before"/>
+      </ui>
+      <buses>
+        <inputs>
+          <AudioChannelSet arrangement="C"/>
+        </inputs>
+        <outputs>
+          <AudioChannelSet arrangement="L R"/>
+        </outputs>
+      </buses>
+      <ports>
+        <Port index="0" channel="0" type="audio" name="Input 1" symbol="audio_in_1"
+              flow="input" hiddenOnBlock="0"/>
+        <Port index="1" channel="0" type="audio" name="Output 1" symbol="audio_out_1"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="2" channel="1" type="audio" name="Output 2" symbol="audio_out_2"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="3" channel="0" type="control" name="Coordinate System"
+              symbol="control_0" flow="input" hiddenOnBlock="1"/>
+        <Port index="4" channel="1" type="control" name="Azimuth" symbol="control_1"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="5" channel="2" type="control" name="Elevation" symbol="control_2"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="6" channel="3" type="control" name="Distance" symbol="control_3"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="7" channel="4" type="control" name="X" symbol="control_4"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="8" channel="5" type="control" name="Y" symbol="control_5"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="9" channel="6" type="control" name="Z" symbol="control_6"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="10" channel="7" type="control" name="Direct Gain" symbol="control_7"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="11" channel="8" type="control" name="Azimuth Scale" symbol="control_8"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="12" channel="9" type="control" name="Distance Scale" symbol="control_9"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="13" channel="10" type="control" name="Occlusion" symbol="control_10"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="14" channel="11" type="control" name="Virtual Acoustics"
+              symbol="control_11" flow="input" hiddenOnBlock="1"/>
+        <Port index="15" channel="12" type="control" name="Room Size" symbol="control_12"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="16" channel="13" type="control" name="Reverb" symbol="control_13"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="17" channel="14" type="control" name="Reverb Gain" symbol="control_14"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="18" channel="15" type="control" name="Reverb Low Pass"
+              symbol="control_15" flow="input" hiddenOnBlock="1"/>
+        <Port index="19" channel="16" type="control" name="Reverb High Pass"
+              symbol="control_16" flow="input" hiddenOnBlock="1"/>
+        <Port index="20" channel="17" type="control" name="Reflection" symbol="control_17"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="21" channel="18" type="control" name="Reflection Gain"
+              symbol="control_18" flow="input" hiddenOnBlock="1"/>
+        <Port index="22" channel="19" type="control" name="Reflection Low Pass"
+              symbol="control_19" flow="input" hiddenOnBlock="1"/>
+        <Port index="23" channel="20" type="control" name="Reflection High Pass"
+              symbol="control_20" flow="input" hiddenOnBlock="1"/>
+        <Port index="24" channel="21" type="control" name="Real-time Auralization"
+              symbol="control_21" flow="input" hiddenOnBlock="1"/>
+        <Port index="25" channel="22" type="control" name="Top Wall" symbol="control_22"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="26" channel="23" type="control" name="Bottom Wall" symbol="control_23"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="27" channel="24" type="control" name="Front Wall" symbol="control_24"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="28" channel="25" type="control" name="Back Wall" symbol="control_25"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="29" channel="26" type="control" name="Left Wall" symbol="control_26"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="30" channel="27" type="control" name="Right Wall" symbol="control_27"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="31" channel="28" type="control" name="Bypass" symbol="control_28"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="32" channel="29" type="control" name="Bass Boost" symbol="control_29"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="33" channel="30" type="control" name="Performance Mode"
+              symbol="control_30" flow="input" hiddenOnBlock="1"/>
+        <Port index="34" channel="31" type="control" name="Stereo Width" symbol="control_31"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="35" channel="32" type="control" name="Master Gain" symbol="control_32"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="36" channel="33" type="control" name="LFE Gain" symbol="control_33"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="37" channel="34" type="control" name="Clarity" symbol="control_34"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
+              flow="input" hiddenOnBlock="0"/>
+      </ports>
+    </Node>
+    <Node id="9" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
+          type="plugin" name="dearVR PRO 2" relativeX="0.4155844155844156"
+          relativeY="0.5782208588957055" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
+          uuid="2e4d7d1ea8e841c2868dc759798b5710" bypass="0" persistent="1"
+          renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+          tempo="120.0" x="339.0" y="347.0" windowX="460" windowY="147"
+          windowVisible="0" state="1531.VMjLgHeA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1LiKV0jZLcFR43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2LB4jLTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MCZMICQS4zcDkGSvX1PNkGS4wzcHMkSyXVZLMCRBgTVvjFR1MiTMglKnYENHIDSzwTdMYGV4wDMTkGS3Y1PLoGTC4DMDkGSvH1PMglKBE0aIcUVoEkLQc1ZrEFNHIDSzY1PLYmKCwjctLES2oVZLYmZowzLpMUSv3xPNglKRAUMqYUXvD0QZMUSVgkbUY0Sn4RZKgGSCwjLXMkS34RZLcGQ4wzcTMESvP0PLgmZogjYPQkV4E0UXQWSVk0TMYEVxUkUOglKosjcpMkS1o1TNYmZS4TLLkVS1IVdMMiYCwzLTMkSn4BdSkVSFEFLMckV0QiUOglKogjYXUkV3E0Uic1cVAUZ3X0X4E0UZkVSW8DZtj1R4QzPMYmKCwjcDMDS5o1PLoGQ40jdlMDS5IVZHYFRvDVcvDCUu81UYgCRRwDZtfFUqk0UYgWRwLkSvjFR1gjPHIUUrM1ZI0FVGUjUZQGLogjcyfVS1Y1TMcGUo0DdtjFS4QTZMgmYC0zchMkSxfjPHIUUrM1ZI0FVLgSLiAUQwHVdvjFR2gjPHIUUrM1ZI0FVHsVLY4VPUgUdMc0Sn4RZHYFRUkEa2YUVoE0UZUGMwLkSvjFR1gjPHIUUrkkbUECV5sVLgQ2XTg0azX0Sn4RZKMiKCwjctLDS1QzTLQCRCwDMHMjSzP0TMYmYogjYHUUVrcmUYkVTWoUczXzT0M1QTcVSxHFNHIESn4BZTsVVFE1ZMYzXugCaggzZwjkaAUEV40zUOglKogjYHUUVmcmQU8FLVkUPU0lXmcmUZUSQFM1a3vVX3fjTLglKBUUcAISUmcmQggCRBwDcDMjS4wTdLkGS4wjLLMDSwnVdMECSSwzLLkVSn4BZPUWTGMVcvDSUmcmQggCRBwDctLUSzn1TNQiZS4zLXMUSyX1TNACTS4DdTMUS5gjPHYTRxDFcQISUmcmQggCRBwDcHMjS4wTdLkGS4wzcLMTSwP0TLcmYC0jclkFSn4BZPcVSwn0UEYTXxASZHY2LnwTLXkVSwfUZMMiKS0jLPMTS2I1TLcGTowTLHIDRLUEaYo2XUgkb2Y0Sn4RZKkGVo0TLXkVSwH1PMECQ4wDMTkFSwvTZMICRogjYHUkVsclQicUQFElbvjFR1MCdLomZS4DMpMkSz.0PLkmZS0TdTMUS3gzPMECRBgjPqcjXm0jLhgCRBwDZtfFTm0jLhIDNwDVdQc0Sn4RZHYlKUkEdYESX3AiUXQWSVkUS3XTVqASZHYGRBgzTQcUV3UULgc0ZFkkdmY0Sn4RZHYldTgUdQcUV3MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYlcpk0ZiQEVuQiUOglKogjYLQTXmkzUZo2ZW8DZtjFRlY1UjAUQFkkUqYUVx.SZHYGRBgzLqcDUmEEaVUGNVEFNHgFSncCZO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
+          program="0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+          mute="0" muteInput="0" midiProgramsState="52.3o8Jnn7SunDysXFXfQFK.BaFXjY3rXkQF.BxKwbSkAFYhUFJtjDKAHKVX0.8XfA.h2YCaB"
+          oversamplingFactor="1" enabled="1">
+      <nodes/>
+      <scripts/>
+      <ui>
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+               portAlignment="before"/>
+      </ui>
+      <buses>
+        <inputs>
+          <AudioChannelSet arrangement="C"/>
+        </inputs>
+        <outputs>
+          <AudioChannelSet arrangement="L R"/>
+        </outputs>
+      </buses>
+      <ports>
+        <Port index="0" channel="0" type="audio" name="Input 1" symbol="audio_in_1"
+              flow="input" hiddenOnBlock="0"/>
+        <Port index="1" channel="0" type="audio" name="Output 1" symbol="audio_out_1"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="2" channel="1" type="audio" name="Output 2" symbol="audio_out_2"
+              flow="output" hiddenOnBlock="0"/>
+        <Port index="3" channel="0" type="control" name="Coordinate System"
+              symbol="control_0" flow="input" hiddenOnBlock="1"/>
+        <Port index="4" channel="1" type="control" name="Azimuth" symbol="control_1"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="5" channel="2" type="control" name="Elevation" symbol="control_2"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="6" channel="3" type="control" name="Distance" symbol="control_3"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="7" channel="4" type="control" name="X" symbol="control_4"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="8" channel="5" type="control" name="Y" symbol="control_5"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="9" channel="6" type="control" name="Z" symbol="control_6"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="10" channel="7" type="control" name="Direct Gain" symbol="control_7"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="11" channel="8" type="control" name="Azimuth Scale" symbol="control_8"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="12" channel="9" type="control" name="Distance Scale" symbol="control_9"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="13" channel="10" type="control" name="Occlusion" symbol="control_10"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="14" channel="11" type="control" name="Virtual Acoustics"
+              symbol="control_11" flow="input" hiddenOnBlock="1"/>
+        <Port index="15" channel="12" type="control" name="Room Size" symbol="control_12"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="16" channel="13" type="control" name="Reverb" symbol="control_13"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="17" channel="14" type="control" name="Reverb Gain" symbol="control_14"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="18" channel="15" type="control" name="Reverb Low Pass"
+              symbol="control_15" flow="input" hiddenOnBlock="1"/>
+        <Port index="19" channel="16" type="control" name="Reverb High Pass"
+              symbol="control_16" flow="input" hiddenOnBlock="1"/>
+        <Port index="20" channel="17" type="control" name="Reflection" symbol="control_17"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="21" channel="18" type="control" name="Reflection Gain"
+              symbol="control_18" flow="input" hiddenOnBlock="1"/>
+        <Port index="22" channel="19" type="control" name="Reflection Low Pass"
+              symbol="control_19" flow="input" hiddenOnBlock="1"/>
+        <Port index="23" channel="20" type="control" name="Reflection High Pass"
+              symbol="control_20" flow="input" hiddenOnBlock="1"/>
+        <Port index="24" channel="21" type="control" name="Real-time Auralization"
+              symbol="control_21" flow="input" hiddenOnBlock="1"/>
+        <Port index="25" channel="22" type="control" name="Top Wall" symbol="control_22"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="26" channel="23" type="control" name="Bottom Wall" symbol="control_23"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="27" channel="24" type="control" name="Front Wall" symbol="control_24"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="28" channel="25" type="control" name="Back Wall" symbol="control_25"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="29" channel="26" type="control" name="Left Wall" symbol="control_26"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="30" channel="27" type="control" name="Right Wall" symbol="control_27"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="31" channel="28" type="control" name="Bypass" symbol="control_28"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="32" channel="29" type="control" name="Bass Boost" symbol="control_29"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="33" channel="30" type="control" name="Performance Mode"
+              symbol="control_30" flow="input" hiddenOnBlock="1"/>
+        <Port index="34" channel="31" type="control" name="Stereo Width" symbol="control_31"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="35" channel="32" type="control" name="Master Gain" symbol="control_32"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="36" channel="33" type="control" name="LFE Gain" symbol="control_33"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="37" channel="34" type="control" name="Clarity" symbol="control_34"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
+              flow="input" hiddenOnBlock="1"/>
+        <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
+              flow="input" hiddenOnBlock="0"/>
+      </ports>
+    </Node>
+  </nodes>
+  <scripts/>
+  <ui>
+    <Block/>
+    <GraphEditorView width="924" height="652"/>
+  </ui>
+  <arcs>
+    <Arc sourceNode="1" sourcePort="0" destNode="5" destPort="0"/>
+    <Arc sourceNode="1" sourcePort="1" destNode="6" destPort="0"/>
+    <Arc sourceNode="1" sourcePort="2" destNode="7" destPort="0"/>
+    <Arc sourceNode="1" sourcePort="3" destNode="9" destPort="0"/>
+    <Arc sourceNode="5" sourcePort="1" destNode="2" destPort="0"/>
+    <Arc sourceNode="5" sourcePort="2" destNode="2" destPort="1"/>
+    <Arc sourceNode="6" sourcePort="1" destNode="2" destPort="0"/>
+    <Arc sourceNode="6" sourcePort="2" destNode="2" destPort="1"/>
+    <Arc sourceNode="7" sourcePort="1" destNode="2" destPort="0"/>
+    <Arc sourceNode="7" sourcePort="2" destNode="2" destPort="1"/>
+    <Arc sourceNode="9" sourcePort="1" destNode="2" destPort="0"/>
+    <Arc sourceNode="9" sourcePort="2" destNode="2" destPort="1"/>
+  </arcs>
+  <ports>
+    <Port index="0" channel="0" type="audio" name="Audio In 1" symbol="audio_in_1"
+          flow="input"/>
+    <Port index="1" channel="1" type="audio" name="Audio In 2" symbol="audio_in_2"
+          flow="input"/>
+    <Port index="2" channel="2" type="audio" name="Audio In 3" symbol="audio_in_3"
+          flow="input"/>
+    <Port index="3" channel="3" type="audio" name="Audio In 4" symbol="audio_in_4"
+          flow="input"/>
+    <Port index="4" channel="4" type="audio" name="Audio In 5" symbol="audio_in_5"
+          flow="input"/>
+    <Port index="5" channel="5" type="audio" name="Audio In 6" symbol="audio_in_6"
+          flow="input"/>
+    <Port index="6" channel="6" type="audio" name="Audio In 7" symbol="audio_in_7"
+          flow="input"/>
+    <Port index="7" channel="7" type="audio" name="Audio In 8" symbol="audio_in_8"
+          flow="input"/>
+    <Port index="8" channel="8" type="audio" name="Audio In 9" symbol="audio_in_9"
+          flow="input"/>
+    <Port index="9" channel="9" type="audio" name="Audio In 10" symbol="audio_in_10"
+          flow="input"/>
+    <Port index="10" channel="10" type="audio" name="Audio In 11" symbol="audio_in_11"
+          flow="input"/>
+    <Port index="11" channel="11" type="audio" name="Audio In 12" symbol="audio_in_12"
+          flow="input"/>
+    <Port index="12" channel="12" type="audio" name="Audio In 13" symbol="audio_in_13"
+          flow="input"/>
+    <Port index="13" channel="13" type="audio" name="Audio In 14" symbol="audio_in_14"
+          flow="input"/>
+    <Port index="14" channel="14" type="audio" name="Audio In 15" symbol="audio_in_15"
+          flow="input"/>
+    <Port index="15" channel="15" type="audio" name="Audio In 16" symbol="audio_in_16"
+          flow="input"/>
+    <Port index="16" channel="0" type="audio" name="Audio Out 1" symbol="audio_out_1"
+          flow="output"/>
+    <Port index="17" channel="1" type="audio" name="Audio Out 2" symbol="audio_out_2"
+          flow="output"/>
+    <Port index="18" channel="0" type="midi" name="MIDI In 1" symbol="midi_in_1"
+          flow="input"/>
+    <Port index="19" channel="0" type="midi" name="MIDI Out 1" symbol="midi_out_1"
+          flow="output"/>
+  </ports>
+</Node>
