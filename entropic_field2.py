@@ -223,6 +223,11 @@ class LaunchpadMido:
         self.out_port.send(mido.Message('sysex', data=[0x00, 0x20, 0x29, 0x02, 0x0E, 0x03, 0x00, 0x00]))
         time.sleep(0.1)
 
+        for i in range(128):
+            self.out_port.send(mido.Message('note_off', note=i, velocity=0))
+            self.out_port.send(mido.Message('control_change', control=i, value=0))
+        time.sleep(0.1)
+
     def LedCtrlRaw(self, bid, r, g, b=None):
         """LED control compatible with launchpad_py API.
         For RGB mode (3 color args): r,g,b in range 0-63 (MK2/Pro/ProMk3 convention).

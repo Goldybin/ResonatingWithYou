@@ -179,6 +179,11 @@ class LaunchpadMido:
         self.out_port.send(mido.Message('sysex', data=[0x00, 0x20, 0x29, 0x02, 0x0E, 0x03, 0x00, 0x00]))
         time.sleep(0.1)
 
+        for i in range(128):
+            self.out_port.send(mido.Message('note_off', note=i, velocity=0))
+            self.out_port.send(mido.Message('control_change', control=i, value=0))
+        time.sleep(0.1)
+
     def set_led(self, bid, color_index):
         self.out_port.send(mido.Message('note_on', channel=0, note=bid, velocity=color_index))
 
@@ -572,12 +577,26 @@ try:
 
 except KeyboardInterrupt: pass
 finally:
-    s.stop(); s.shutdown()
+    time.sleep(0.15)
+    
+    if 's' in locals():
+        s.stop()
+        try:
+            s.shutdown()
+        except:
+            pass
+        time.sleep(0.1)
+        
     if lp:
         if isinstance(lp, (LaunchpadMido, LaunchpadPyWrapper)):
             lp.close()
         elif not EMULATE_MODE:
-            lp.close()
+            try:
+                lp.Reset()
+                lp.Close()
+            except:
+                pass
+                
     if 'kb_mgr' in locals():
         kb_mgr.close()
     print("--- System Offline ---")

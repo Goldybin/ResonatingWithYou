@@ -219,11 +219,17 @@ class LaunchpadMido:
         self.out_port = mido.open_output(out_port_name)
         print(f"--- MIDI IN Connected to: {in_port_name} ---")
         print(f"--- MIDI OUT Connected to: {out_port_name} ---")
+
         print("-> Entering Programmer Mode...")
         self.out_port.send(mido.Message('sysex', data=[0x00, 0x20, 0x29, 0x02, 0x0E, 0x0E, 0x01]))
         time.sleep(1.0)
         print("-> Clearing Grid...")
         self.out_port.send(mido.Message('sysex', data=[0x00, 0x20, 0x29, 0x02, 0x0E, 0x03, 0x00, 0x00]))
+        time.sleep(0.1)
+
+        for i in range(128):
+            self.out_port.send(mido.Message('note_off', note=i, velocity=0))
+            self.out_port.send(mido.Message('control_change', control=i, value=0))
         time.sleep(0.1)
 
     def ButtonFlush(self): pass
@@ -846,12 +852,27 @@ try:
     while running: time.sleep(0.1)
 except KeyboardInterrupt: print("\nKeyboard Interrupt detected."); running = False
 finally:
-    if t.is_alive(): t.join()
-    clear_all_leds()
-    if lp:
-        if isinstance(lp, (LaunchpadMido, LaunchpadPyWrapper)):
+    running = False
+    time.sleep(0.15) 
+    
+    if 's' in locals():
+        s.stop()
+        try:
+            s.shutdown()
+        except:
+            pass
+        time.sleep(0.1)
+    
+    if 'lp' in locals() and lp:
+        if isinstance(lp, (LaunchpadMido, VirtualLaunchpad)):
             lp.close()
         elif not EMULATE_MODE:
-            lp.close()
-    if 'kb_mgr' in locals(): kb_mgr.close()
-    s.stop(); s.shutdown(); print("\nSynth stopped.")
+            try:
+                lp.lp.Reset()
+                lp.lp.Close()
+            except:
+                pass
+                
+    if 'kb_mgr' in locals():
+        kb_mgr.close()
+    print("--- System Offline ---")

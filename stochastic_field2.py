@@ -550,6 +550,18 @@ print("***************************************************\n")
 kb_mgr = KeyboardManager()
 
 # --- 5. Helpers ---
+
+def clear_all_leds():
+    if EMULATE_MODE or not lp:
+        return
+    print("-> Clearing all LEDs...")
+    for x in range(8):
+        for y in range(8):
+            lp_led_grid(x, y, 0, 0)
+    for btn_id in range(128):
+        lp_led_raw(btn_id, 0, 0)
+    time.sleep(0.1)
+
 def get_quadrant_info(x, y):
     if y < 3: octv = 1.5 if x < 4 else 0.5
     elif 3 <= y <= 4: octv = 0.5 if x < 4 else -0.5
@@ -686,6 +698,7 @@ agents = [CellAgent(x, y) for y in range(8) for x in range(8)]
 last_scale_transition = 0
 
 # --- 7. Main Loop ---
+clear_all_leds()
 update_ui()
 try:
     print("--- SERVER STARTED ---")
@@ -776,12 +789,25 @@ try:
         for a in agents: a.update(current_time)
         time.sleep(0.002)
 finally:
-    running = False; s.stop()
+    running = False
+    
+    if 'agents' in locals():
+        for a in agents: 
+            a.active = False
+            
+    time.sleep(0.15)
+    
+    if 's' in locals():
+        s.stop()
+        time.sleep(0.1) 
+        
     if lp:
         if isinstance(lp, (LaunchpadMido, LaunchpadPyWrapper)):
             lp.close()
         elif not EMULATE_MODE:
             lp.close()
+            
     if 'kb_mgr' in locals():
         kb_mgr.close()
+        
     print("--- System Offline ---")

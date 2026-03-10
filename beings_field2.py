@@ -192,6 +192,11 @@ class LaunchpadMido:
         self.out_port.send(mido.Message('sysex', data=[0x00, 0x20, 0x29, 0x02, 0x0E, 0x03, 0x00, 0x00]))
         time.sleep(0.1)
 
+        for i in range(128):
+            self.out_port.send(mido.Message('note_off', note=i, velocity=0))
+            self.out_port.send(mido.Message('control_change', control=i, value=0))
+        time.sleep(0.1)
+
     def Reset(self):
         self.out_port.send(mido.Message('sysex', data=[0x00, 0x20, 0x29, 0x02, 0x0E, 0x03, 0x00, 0x00]))
 
@@ -1214,6 +1219,10 @@ for c in range(scalar):
     for r in range(1, 9): lp_led(c, r, 3, 3)
 base_f = 1.01 + (0.12 / scalar)
 FRICTION_VALUES = [base_f * 1.12, base_f, base_f * 0.96]
+time.sleep(3.0) 
+for c in range(8):
+    for r in range(1, 9):
+        lp_led(c, r, 0, 0) 
 
 while True:
     if EMULATE_MODE:
