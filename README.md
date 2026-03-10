@@ -18,7 +18,7 @@
   
 
 
-This is how your Element setup should look like for a quadrophonic emulation with any good (ideally open) headphones (I'm using Sennheiser HD 560S)
+This is how your Element setup should look like for a quadrophonic emulation with any good (ideally open) headphones (I'm using Sennheiser HD 560S):
 
 <img width="332" height="327" alt="image" src="https://github.com/user-attachments/assets/7a03aefc-c36a-4e99-b3de-eb5bfb45f804" />
 
@@ -30,6 +30,8 @@ This is how your Element setup should look like for a quadrophonic emulation wit
 
 (output: your headphones)
 
+You can also use the file quadrophonic.elg to import the graph in Kushview Element.
+
 Settings for all 4 plugins:
 <img width="949" height="411" alt="image" src="https://github.com/user-attachments/assets/4cf039a0-44a0-4b0b-89b5-b46dcf7249e8" />
 <img width="941" height="405" alt="image" src="https://github.com/user-attachments/assets/2b42c25e-434d-4be3-a8d7-9dd27334e177" />
@@ -38,7 +40,7 @@ Settings for all 4 plugins:
 
 (you can also play with the distance and the settings by yourself)
 
-Remember: Blackhole inputs 1-4 should go into only 1 input channel per plugin, and both outputs from plugins should go into the final audio output (your headphones).
+Remember: Blackhole inputs 1-4 should go into only 1 input channel per plugin, and both outputs from plugins should go into the final audio output (your headphones), with binaural 2CH setting.
 
 Original README from Yeshi Namkhai follows below.
 
