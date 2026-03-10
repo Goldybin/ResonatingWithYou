@@ -109,7 +109,7 @@
       </ports>
     </Node>
     <Node id="5" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
-          type="plugin" name="dearVR PRO 2" relativeX="0.2067099567099567"
+          type="plugin" name="Left Front" relativeX="0.2067099567099567"
           relativeY="0.4355828220858896" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
           uuid="0351e5d47f824225b6c6432280119547" bypass="0" persistent="1"
           renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
@@ -216,7 +216,7 @@
       </ports>
     </Node>
     <Node id="6" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
-          type="plugin" name="dearVR PRO 2" relativeX="0.4166666666666667"
+          type="plugin" name="Right Front" relativeX="0.4166666666666667"
           relativeY="0.4371165644171779" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
           uuid="f2f9c7c491a447c59f248ecc72ab4e72" bypass="0" persistent="1"
           renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
@@ -323,7 +323,7 @@
       </ports>
     </Node>
     <Node id="7" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
-          type="plugin" name="dearVR PRO 2" relativeX="0.211038961038961"
+          type="plugin" name="Left Rear" relativeX="0.211038961038961"
           relativeY="0.5736196319018405" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
           uuid="f0d6752282d3476393271c95995f39dc" bypass="0" persistent="1"
           renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
@@ -430,7 +430,7 @@
       </ports>
     </Node>
     <Node id="9" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
-          type="plugin" name="dearVR PRO 2" relativeX="0.4155844155844156"
+          type="plugin" name="Right Rear" relativeX="0.4155844155844156"
           relativeY="0.5782208588957055" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
           uuid="2e4d7d1ea8e841c2868dc759798b5710" bypass="0" persistent="1"
           renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
