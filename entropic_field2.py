@@ -458,6 +458,55 @@ if not s.getIsBooted():
     if 'kb_mgr' in locals(): kb_mgr.close()
     sys.exit(1)
 
+# --- Phase 2: Post-Boot Channel Verification ---
+# Now that the server is booted, pa_get_output_max_channels() returns accurate values.
+# Verify the selected device actually supports the requested channel count.
+_verified_chans = 0
+try:
+    _verified_chans = pa_get_output_max_channels(actual_dev_id)
+except:
+    pass
+
+if _verified_chans > 0:
+    print(f"   VERIFIED: Device {actual_dev_id} supports {_verified_chans} output channels")
+    if not args.channels and _verified_chans != max_chans:
+        # Our Phase 1 guess was wrong — re-check all devices with accurate data
+        print(f"   Phase 1 guessed {max_chans}ch, actual is {_verified_chans}ch")
+        if _verified_chans < 4 and not args.device:
+            # Scan all devices post-boot for a better candidate
+            _best_dev, _best_ch = actual_dev_id, _verified_chans
+            try:
+                for _di in range(pa_count_devices()):
+                    try:
+                        _dch = pa_get_output_max_channels(_di)
+                        if _dch >= 4 and _dch > _best_ch:
+                            _best_dev, _best_ch = _di, _dch
+                    except:
+                        pass
+            except:
+                pass
+            if _best_ch >= 4 and _best_dev != actual_dev_id:
+                print(f"   RESELECTING: Device {_best_dev} has {_best_ch} verified channels")
+                actual_dev_id = _best_dev
+                AUDIO_DEVICE = actual_dev_id
+                num_channels = min(4, _best_ch) if not args.channels else num_channels
+                # Restart server with correct device
+                s.stop()
+                time.sleep(0.2)
+                s = Server(sr=48000, nchnls=num_channels, duplex=0, buffersize=BUFFER_SIZE, winhost=AUDIO_HOST)
+                s.setOutputDevice(AUDIO_DEVICE)
+                s.deactivateMidi()
+                s.boot().start()
+                time.sleep(0.1)
+                print(f"   SERVER RESTARTED: Device {actual_dev_id}, {num_channels} channels")
+            else:
+                num_channels = min(4, _verified_chans) if not args.channels else num_channels
+        else:
+            max_chans = _verified_chans
+            if not args.channels:
+                num_channels = min(4, _verified_chans)
+    print(f"   FINAL CONFIG: Device {actual_dev_id}, {num_channels} channels")
+
 # --- 3. Configuration & Palette ---
 SCALES_DICT = {
     "Chromatic": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],

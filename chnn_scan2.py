@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 import argparse
 import wx
 from PIL import Image
@@ -147,6 +148,66 @@ if AUDIO_DEVICE != -1:
 s.deactivateMidi()
 s.boot().start()
 
+# Ensure the server is booted before creating any audio objects
+time.sleep(0.1)
+if not s.getIsBooted():
+    print("\n[ERROR] Pyo Server failed to boot. This usually happens if the selected")
+    print(f"        audio device (ID {actual_dev_id}) doesn't support {num_channels} output channels.")
+    print("        Try running with -c 2 or selecting a different device with -d <id>.\n")
+    if lp:
+        if isinstance(lp, LaunchpadMido): lp.close()
+        elif not EMULATE_MODE: lp.Reset(); lp.Close()
+    if 'kb_mgr' in locals(): kb_mgr.close()
+    sys.exit(1)
+
+# --- Phase 2: Post-Boot Channel Verification ---
+# Now that the server is booted, pa_get_output_max_channels() returns accurate values.
+# Verify the selected device actually supports the requested channel count.
+_verified_chans = 0
+try:
+    _verified_chans = pa_get_output_max_channels(actual_dev_id)
+except:
+    pass
+
+if _verified_chans > 0:
+    print(f"   VERIFIED: Device {actual_dev_id} supports {_verified_chans} output channels")
+    if not args.channels and _verified_chans != max_chans:
+        # Our Phase 1 guess was wrong — re-check all devices with accurate data
+        print(f"   Phase 1 guessed {max_chans}ch, actual is {_verified_chans}ch")
+        if _verified_chans < 4 and not args.device:
+            # Scan all devices post-boot for a better candidate
+            _best_dev, _best_ch = actual_dev_id, _verified_chans
+            try:
+                for _di in range(pa_count_devices()):
+                    try:
+                        _dch = pa_get_output_max_channels(_di)
+                        if _dch >= 4 and _dch > _best_ch:
+                            _best_dev, _best_ch = _di, _dch
+                    except:
+                        pass
+            except:
+                pass
+            if _best_ch >= 4 and _best_dev != actual_dev_id:
+                print(f"   RESELECTING: Device {_best_dev} has {_best_ch} verified channels")
+                actual_dev_id = _best_dev
+                AUDIO_DEVICE = actual_dev_id
+                num_channels = min(4, _best_ch) if not args.channels else num_channels
+                # Restart server with correct device
+                s.stop()
+                time.sleep(0.2)
+                s = Server(sr=48000, nchnls=num_channels, duplex=0, buffersize=BUFFER_SIZE, winhost=AUDIO_HOST)
+                s.setOutputDevice(AUDIO_DEVICE)
+                s.deactivateMidi()
+                s.boot().start()
+                time.sleep(0.1)
+                print(f"   SERVER RESTARTED: Device {actual_dev_id}, {num_channels} channels")
+            else:
+                num_channels = min(4, _verified_chans) if not args.channels else num_channels
+        else:
+            max_chans = _verified_chans
+            if not args.channels:
+                num_channels = min(4, _verified_chans)
+    print(f"   FINAL CONFIG: Device {actual_dev_id}, {num_channels} channels")
 
 # 3. Image Processing
 def load_image_data(img_path, size=(64, 64)):
@@ -215,6 +276,7 @@ class SonifierFrame(wx.Frame):
         self.canvas = wx.StaticBitmap(self.panel, -1, self.bmp, pos=(0, 0))
         self.cursor = wx.Panel(self.panel, size=(400//width, 400//height), pos=(-10, -10))
         self.cursor.SetBackgroundColour(wx.Colour(255, 255, 255))
+        self.scanning = False
         
         # Start Button
         y_pos = 410
@@ -258,21 +320,49 @@ class SonifierFrame(wx.Frame):
         self.panel.Bind(wx.EVT_KEY_DOWN, self.on_key)
         self.panel.SetFocus()
 
+        # Clean shutdown handler — stop audio BEFORE wx destroys windows
+        self.Bind(wx.EVT_CLOSE, self.on_close)
+
+    def on_close(self, event):
+        """Stop all audio before wx teardown to prevent CoreAudio crash."""
+        self.stop_scan()
+        # Delete GUI-bound Pyo objects (Scope/Spectrum) before server stops
+        sc.stop(); sp.stop()
+        s.stop()
+        time.sleep(0.1)
+        s.shutdown()
+        print("--- System Shutdown: Goodbye ---")
+        event.Skip()  # Let wx finish destroying the window
+
     def on_key(self, event):
         if event.GetKeyCode() == wx.WXK_ESCAPE:
             print("\n--- System: ESC Pressed. Exiting... ---")
-            met.stop()
+            self.stop_scan()
             self.Close()
         event.Skip()
 
     def on_start(self, e):
-        self.start_btn.Disable()
-        count.reset()
-        met.play()
+        if not self.scanning:
+            self.scanning = True
+            self.start_btn.SetLabel("STOP SCAN")
+            count.reset()
+            met.play()
+        else:
+            self.stop_scan()
+
+    def stop_scan(self):
+        met.stop()
+        self.scanning = False
+        self.start_btn.SetLabel("START SCAN")
+
+    def scan_finished(self):
+        """Called from update_params when scan reaches the end."""
+        self.scanning = False
+        self.start_btn.SetLabel("START SCAN")
 
     def on_select_image(self, e):
         global pixel_data, width, height, num_pixels, display_img
-        met.stop()
+        self.stop_scan()
         dlg = wx.FileDialog(self, "Select an image file",
             wildcard="Image files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*",
             style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
@@ -288,7 +378,6 @@ class SonifierFrame(wx.Frame):
             self.canvas.SetBitmap(wx.Bitmap(wx_img))
             self.cursor.SetSize((400 // width, 400 // height))
             self.cursor.SetPosition((-10, -10))
-            self.start_btn.Enable()
         dlg.Destroy()
 
     def update_vol(self, e): db_val.value = self.vol_slider.GetValue()
@@ -321,7 +410,7 @@ def update_params():
         wx.CallAfter(frame.update_cursor, x_idx, y_idx)
     else:
         met.stop()
-        wx.CallAfter(frame.start_btn.Enable)
+        wx.CallAfter(frame.scan_finished)
 
 trig = TrigFunc(met, update_params)
 
@@ -331,7 +420,3 @@ app = wx.App(False)
 frame = SonifierFrame(None, "Paolo Fassoli - Compact Quad Scan", display_img)
 frame.Show()
 app.MainLoop()
-
-# Cleanup after wx exits
-s.stop()
-print("--- System Shutdown: Goodbye ---")

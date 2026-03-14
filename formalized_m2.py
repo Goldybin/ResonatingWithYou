@@ -205,6 +205,12 @@ class LaunchpadMido:
     def reset_leds(self):
         self.out_port.send(mido.Message('sysex', data=[0x00, 0x20, 0x29, 0x02, 0x0E, 0x03, 0x00, 0x00]))
         time.sleep(0.1)
+        """Turn off only the 8x8 grid LEDs (IDs 11-18, 21-28, ... 81-88), leaving top/side buttons intact."""
+        for row in range(1, 9):
+            for col in range(1, 9):
+                bid = row * 10 + col
+                self.out_port.send(mido.Message('note_off', note=bid, velocity=0))
+        time.sleep(0.05)
 
     def get_events(self):
         events = []
@@ -431,6 +437,67 @@ if AUDIO_DEVICE != -1:
 s.deactivateMidi()
 s.boot().start()
 
+# Ensure the server is booted before creating any audio objects
+time.sleep(0.1)
+if not s.getIsBooted():
+    print("\n[ERROR] Pyo Server failed to boot. This usually happens if the selected")
+    print(f"        audio device (ID {actual_dev_id}) doesn't support {num_channels} output channels.")
+    print("        Try running with -c 2 or selecting a different device with -d <id>.\n")
+    if lp:
+        if isinstance(lp, LaunchpadMido): lp.close()
+        elif not EMULATE_MODE: lp.Reset(); lp.Close()
+    if 'kb_mgr' in locals(): kb_mgr.close()
+    sys.exit(1)
+
+# --- Phase 2: Post-Boot Channel Verification ---
+# Now that the server is booted, pa_get_output_max_channels() returns accurate values.
+# Verify the selected device actually supports the requested channel count.
+_verified_chans = 0
+try:
+    _verified_chans = pa_get_output_max_channels(actual_dev_id)
+except:
+    pass
+
+if _verified_chans > 0:
+    print(f"   VERIFIED: Device {actual_dev_id} supports {_verified_chans} output channels")
+    if not args.channels and _verified_chans != max_chans:
+        # Our Phase 1 guess was wrong — re-check all devices with accurate data
+        print(f"   Phase 1 guessed {max_chans}ch, actual is {_verified_chans}ch")
+        if _verified_chans < 4 and not args.device:
+            # Scan all devices post-boot for a better candidate
+            _best_dev, _best_ch = actual_dev_id, _verified_chans
+            try:
+                for _di in range(pa_count_devices()):
+                    try:
+                        _dch = pa_get_output_max_channels(_di)
+                        if _dch >= 4 and _dch > _best_ch:
+                            _best_dev, _best_ch = _di, _dch
+                    except:
+                        pass
+            except:
+                pass
+            if _best_ch >= 4 and _best_dev != actual_dev_id:
+                print(f"   RESELECTING: Device {_best_dev} has {_best_ch} verified channels")
+                actual_dev_id = _best_dev
+                AUDIO_DEVICE = actual_dev_id
+                num_channels = min(4, _best_ch) if not args.channels else num_channels
+                # Restart server with correct device
+                s.stop()
+                time.sleep(0.2)
+                s = Server(sr=48000, nchnls=num_channels, duplex=0, buffersize=BUFFER_SIZE, winhost=AUDIO_HOST)
+                s.setOutputDevice(AUDIO_DEVICE)
+                s.deactivateMidi()
+                s.boot().start()
+                time.sleep(0.1)
+                print(f"   SERVER RESTARTED: Device {actual_dev_id}, {num_channels} channels")
+            else:
+                num_channels = min(4, _verified_chans) if not args.channels else num_channels
+        else:
+            max_chans = _verified_chans
+            if not args.channels:
+                num_channels = min(4, _verified_chans)
+    print(f"   FINAL CONFIG: Device {actual_dev_id}, {num_channels} channels")
+
 # --- 3. Xenakis Vector Synthesis (Recalibrated Red Engine) ---
 sustain_mod = Sig(0.1)
 master_vol = Sig(0.6)
@@ -564,7 +631,7 @@ def total_entropy_reset():
             for i, b in enumerate(SIDE_BTNS):
                 lp_led_raw(b, *(ALGO_COLS_DIM[i] if i < 4 else (3, 3) if i == 5 else (0, 1)))
             lp_led_raw(DELAY_BTN, 0, 3); lp_led_raw(REVERB_BTN, 0, 3)
-            lp_led_raw(EXIT_PWR_BTN, 0, 0, 1)
+            lp_led_raw(EXIT_PWR_BTN, 0, 0, 1)            
         except: pass
     master_vol_port.value = master_vol.value
     is_fading = False

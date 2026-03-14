@@ -281,21 +281,68 @@ print(" '-d <id>', '--device <id>', Set audio output device ID ")
 
 print("\n" + "=" * 50)
 print(" AVAILABLE AUDIO DEVICES:")
+
+# Capture pa_list_devices() text output for parsing
+import io as _io
+_capture = _io.StringIO()
+_old_stdout = sys.stdout
+sys.stdout = _capture
 pa_list_devices()
+sys.stdout = _old_stdout
+_dev_text = _capture.getvalue()
+print(_dev_text, end='')  # Print it for the user to see
 print("=" * 50 + "\n")
 
-try:
-    actual_dev_id = pa_get_default_output() if AUDIO_DEVICE == -1 else AUDIO_DEVICE
-    max_chans = pa_get_output_max_channels(actual_dev_id)
-    if max_chans == 0: max_chans = 2
-except:
-    actual_dev_id = AUDIO_DEVICE; max_chans = 2
+# --- Audio Device & Channel Auto-Detection ---
+# Parse pa_list_devices() output to find multi-channel OUT devices
+# (pa_get_output_max_channels() returns 0 before server boot on macOS CoreAudio)
+import re as _re
+_out_devices = []  # [(dev_id, name, guessed_channels), ...]
+for _line in _dev_text.splitlines():
+    _m = _re.match(r'^\s*(\d+):\s*OUT,\s*name:\s*(.+?),\s*host', _line)
+    if _m:
+        _dev_id = int(_m.group(1))
+        _dev_name = _m.group(2).strip()
+        # Try to extract channel count from name (e.g. "BlackHole 16ch", "BlackHole 2ch")
+        _ch_match = _re.search(r'(\d+)\s*ch', _dev_name, _re.IGNORECASE)
+        _guessed_ch = int(_ch_match.group(1)) if _ch_match else 2
+        _out_devices.append((_dev_id, _dev_name, _guessed_ch))
+        print(f"   OUT Device {_dev_id}: \"{_dev_name}\" (~{_guessed_ch}ch)")
 
-if args.channels: num_channels = args.channels
-else: num_channels = 4 if max_chans >= 4 else 2
+if args.device is not None:
+    actual_dev_id = args.device
+    max_chans = next((ch for did, _, ch in _out_devices if did == actual_dev_id), 2)
+    print(f"   DEVICE: Manually set to ID {actual_dev_id}")
+else:
+    # Pick first output device with 4+ channels
+    _quad = [(d, n, ch) for d, n, ch in _out_devices if ch >= 4]
+    if _quad:
+        actual_dev_id = _quad[0][0]
+        max_chans = _quad[0][2]
+        print(f"   >>> AUTO-SELECTED: Device {actual_dev_id} \"{_quad[0][1]}\" ({max_chans}ch)")
+    elif _out_devices:
+        actual_dev_id = _out_devices[0][0]
+        max_chans = _out_devices[0][2]
+        print(f"   No 4+ channel device found, using first output: ID {actual_dev_id}")
+    else:
+        try:
+            actual_dev_id = pa_get_default_output()
+        except:
+            actual_dev_id = 0
+        max_chans = 2
+        print(f"   No output devices parsed, using system default: ID {actual_dev_id}")
+
+AUDIO_DEVICE = actual_dev_id
+
+if args.channels:
+    num_channels = args.channels
+else:
+    num_channels = min(4, max_chans)
+    if num_channels < 4:
+        print(f"   NOTE: Selected device supports {max_chans}ch, using {num_channels} channels")
 
 print(f"\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-print(f" FORCED AUDIO DEVICE: ID {actual_dev_id}")
+print(f" AUDIO DEVICE: ID {actual_dev_id}")
 print(f" TOTAL CHANNELS: {num_channels}")
 print(f"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n")
 
@@ -346,6 +393,67 @@ if AUDIO_DEVICE != -1:
     s.setOutputDevice(AUDIO_DEVICE)
 s.deactivateMidi()
 s.boot().start()
+
+# Ensure the server is booted before creating any audio objects
+time.sleep(0.1)
+if not s.getIsBooted():
+    print("\n[ERROR] Pyo Server failed to boot. This usually happens if the selected")
+    print(f"        audio device (ID {actual_dev_id}) doesn't support {num_channels} output channels.")
+    print("        Try running with -c 2 or selecting a different device with -d <id>.\n")
+    if lp:
+        if isinstance(lp, LaunchpadMido): lp.close()
+        elif not EMULATE_MODE: lp.Reset(); lp.Close()
+    if 'kb_mgr' in locals(): kb_mgr.close()
+    sys.exit(1)
+
+# --- Phase 2: Post-Boot Channel Verification ---
+# Now that the server is booted, pa_get_output_max_channels() returns accurate values.
+# Verify the selected device actually supports the requested channel count.
+_verified_chans = 0
+try:
+    _verified_chans = pa_get_output_max_channels(actual_dev_id)
+except:
+    pass
+
+if _verified_chans > 0:
+    print(f"   VERIFIED: Device {actual_dev_id} supports {_verified_chans} output channels")
+    if not args.channels and _verified_chans != max_chans:
+        # Our Phase 1 guess was wrong — re-check all devices with accurate data
+        print(f"   Phase 1 guessed {max_chans}ch, actual is {_verified_chans}ch")
+        if _verified_chans < 4 and not args.device:
+            # Scan all devices post-boot for a better candidate
+            _best_dev, _best_ch = actual_dev_id, _verified_chans
+            try:
+                for _di in range(pa_count_devices()):
+                    try:
+                        _dch = pa_get_output_max_channels(_di)
+                        if _dch >= 4 and _dch > _best_ch:
+                            _best_dev, _best_ch = _di, _dch
+                    except:
+                        pass
+            except:
+                pass
+            if _best_ch >= 4 and _best_dev != actual_dev_id:
+                print(f"   RESELECTING: Device {_best_dev} has {_best_ch} verified channels")
+                actual_dev_id = _best_dev
+                AUDIO_DEVICE = actual_dev_id
+                num_channels = min(4, _best_ch) if not args.channels else num_channels
+                # Restart server with correct device
+                s.stop()
+                time.sleep(0.2)
+                s = Server(sr=48000, nchnls=num_channels, duplex=0, buffersize=BUFFER_SIZE, winhost=AUDIO_HOST)
+                s.setOutputDevice(AUDIO_DEVICE)
+                s.deactivateMidi()
+                s.boot().start()
+                time.sleep(0.1)
+                print(f"   SERVER RESTARTED: Device {actual_dev_id}, {num_channels} channels")
+            else:
+                num_channels = min(4, _verified_chans) if not args.channels else num_channels
+        else:
+            max_chans = _verified_chans
+            if not args.channels:
+                num_channels = min(4, _verified_chans)
+    print(f"   FINAL CONFIG: Device {actual_dev_id}, {num_channels} channels")
 
 print("--- Audio Engine Started ---")
 print("\n***************************************************")
@@ -1251,7 +1359,7 @@ try:
         ev = lp.ButtonStateRaw()
         if ev and ev[1]:
             bid = ev[0]
-            print(f"--- Button pressed: {bid} ---")
+            #print(f"--- Button pressed: {bid} ---")
             idx = -1
             
             # Main Grid: Obstacle Toggle
