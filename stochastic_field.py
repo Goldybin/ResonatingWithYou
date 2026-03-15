@@ -34,7 +34,7 @@ play until deactivaed a sequence chosen randomly.
             Dim color = Ready; Bright color = Triggering; Red = Scale Root
 
 =============================================================================================
-The left area of ​the grid generates even rhythms, while the right area generates odd rhythms. 
+The left area of the grid generates even rhythms, while the right area generates odd rhythms. 
 
 LEFT (x < 4)                 RIGHT (x >= 4)
         "EVEN" Rhythms                 "ODD" Rhythms
