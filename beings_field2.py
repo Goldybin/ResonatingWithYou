@@ -174,6 +174,11 @@ class VirtualLaunchpad:
             x, gy = grid_map[char]; bid = gy * 16 + x
             self._pressed[bid] = True; self._event_buffer.append([bid, 127])
 
+    def get_events(self):
+        events = [(ev[0], ev[1]) for ev in self._event_buffer]
+        self._event_buffer.clear()
+        return events
+
     def ButtonStateRaw(self):
         if self._event_buffer: return self._event_buffer.pop(0)
         return []
@@ -219,6 +224,18 @@ class LaunchpadMido:
         bid = (9 - y) * 10 + x + 1
         self.LedCtrlRaw(bid, r, g, b)
 
+    def get_events(self):
+        """Return ALL pending events as list of (bid, state) tuples.
+        Fully exhausts iter_pending() — same pattern as gen_field2/formalized_m2."""
+        events = []
+        for msg in self.in_port.iter_pending():
+            if msg.type in ['note_on', 'note_off']:
+                state = msg.velocity if msg.type == 'note_on' else 0
+                events.append((msg.note, state))
+            elif msg.type == 'control_change':
+                events.append((msg.control, msg.value))
+        return events
+
     def ButtonStateRaw(self):
         for msg in self.in_port.iter_pending():
             if msg.type in ['note_on', 'note_off']:
@@ -248,6 +265,13 @@ class LaunchpadPyWrapper:
         try: self.lp.LedCtrlXY(x, y, *args)
         except: pass
     def ButtonStateRaw(self): return self.lp.ButtonStateRaw()
+    def get_events(self):
+        events = []
+        while True:
+            ev = self.lp.ButtonStateRaw()
+            if not ev: break
+            events.append((ev[0], ev[1]))
+        return events
     def Close(self): self.lp.Reset(); self.lp.Close()
 
 print("\n" + "=" * 50)
@@ -641,6 +665,7 @@ grid_map = {}
 ball_freqs = [0.0] * MAX_BALLS
 balls = [None] * MAX_BALLS
 lock = threading.Lock()
+led_running = True  # Flag to stop LED update thread on exit
 
 lt_timer = fm_timer = gran_timer = wrap_timer = obstacle_timer = delay_timer = None
 FRICTION_VALUES = [1.1, 1.04, 1.015]
@@ -1149,7 +1174,7 @@ def led_update_loop():
     last_grid_state = {}
     last_ball_active = [False] * MAX_BALLS
     
-    while True:
+    while led_running:
         try:
             with lock:
                 current_state = dict(grid_map)  # Copy current state
@@ -1332,7 +1357,15 @@ def setup_link():
 #setup_link()
 
 # --- 10. Scalar Start ---
+# The scalar determines ball life expectancy:
+# Few columns (1-2) = balls lose energy quickly and die fast
+# Many columns (7-8) = balls live a long time
 scalar = random.randint(1, 8)
+print(f"--- Life Expectancy: {scalar} columns (higher = longer ball life) ---")
+
+# Set top/side button LEDs before scalar display (so they're green from the start)
+update_ui()
+
 for c in range(scalar):
     for r in range(1, 9): lp_led(c, r, 3, 3)
 base_f = 1.01 + (0.12 / scalar)
@@ -1342,37 +1375,43 @@ for c in range(8):
     for r in range(1, 9):
         lp_led(c, r, 0, 0) 
 
+print("--- Press any button to start... ---")
+_startup_events = []  # Save the press that exits scalar wait to inject into main loop
 while True:
     key = kb_mgr.get_key()
     if key == '\x1b': break
     if EMULATE_MODE and key:
         lp.feed_key(key)
-    ev = lp.ButtonStateRaw()
-    if ev: break
+    events = lp.get_events()
+    if events:
+        # Save press events (not releases) to inject into main loop
+        _startup_events = [(bid, state) for bid, state in events if state > 0]
+        break
     time.sleep(0.01)
-
-# Drain any buffered stdin (from ESC presses during scalar wait)
-while kb_mgr.get_key() is not None: pass
-
-lp.Reset(); update_ui()
 
 # --- 11. Main Loop ---
 try:
     launched = False
     while True:
-        # Cross-platform ESC exit check
-        key = kb_mgr.get_key()
-        if key == '\x1b':
-            print("\n--- System: ESC Pressed. Exiting... ---")
-            break
 
-        # Feed keyboard events in emulation mode
-        if EMULATE_MODE:
-            lp.feed_key(key)
+        # Inject the saved startup event on first iteration
+        if _startup_events:
+            events = _startup_events
+            _startup_events = []
+        else:
+            # Cross-platform ESC exit check
+            key = kb_mgr.get_key()
+            if key == '\x1b':
+                print("\n--- System: ESC Pressed. Exiting... ---")
+                break
 
-        ev = lp.ButtonStateRaw()
-        if ev and ev[1]:
-            bid = ev[0]
+            # Gather events: emulation keyboard or hardware Launchpad
+            if EMULATE_MODE:
+                lp.feed_key(key)
+            events = lp.get_events()
+
+        for bid, state in events:
+            if not state: continue  # Skip button releases
             #print(f"--- Button pressed: {bid} ---")
             idx = -1
             
@@ -1459,13 +1498,17 @@ try:
 
 except KeyboardInterrupt: pass
 finally:
+    # Stop LED thread FIRST (it sends SysEx via lp.out_port — closing port while it's sending = deadlock)
+    led_running = False
+    time.sleep(0.1)  # Let LED thread exit its loop
+    
     for t in [lt_timer, fm_timer, gran_timer, wrap_timer, obstacle_timer, delay_timer]:
         if t: t.cancel()
     for b in balls:
         if b and b.active: b.stop()
     s.stop()
     s.shutdown()
-    time.sleep(0.5)
+    time.sleep(0.3)
     if lp:
         if isinstance(lp, LaunchpadMido):
             lp.Close()
