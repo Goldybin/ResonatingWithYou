@@ -67,10 +67,10 @@ master_vol = Sig(0.6)
 master_vol_port = Port(master_vol, 4.0, 4.0)
 
 # Sound Sources: Red engine (vector_gendyn) reduced from 3.8 to 2.6
-vector_stochastic = Sig(440); logic_markov = FM(carrier=vector_stochastic, ratio=[0.5, 0.51], index=10, mul=0.6)
-vector_analogique = Sig(220); analogique_v = MoogLP(LFO(freq=vector_analogique, type=3, mul=0.7), freq=1200, res=0.5)
-vector_gendyn = Sig(880); gendyn_v = Reson(PinkNoise(mul=0.15), freq=vector_gendyn, q=10, mul=2.6) 
-vector_achorripsis = Sig(110); achorripsis_v = LFO(freq=vector_achorripsis, type=1, sharp=0.5, mul=0.6)
+vector_stochastic = Sig(440); logic_markov = Clip(FM(carrier=vector_stochastic, ratio=[0.5, 0.51], index=10, mul=0.6), min=-0.9, max=0.9)
+vector_analogique = Sig(220); analogique_v = Clip(MoogLP(LFO(freq=vector_analogique, type=3, mul=0.7), freq=1200, res=0.5), min=-0.9, max=0.9)
+vector_gendyn = Sig(880); gendyn_v = Clip(Reson(PinkNoise(mul=0.15), freq=vector_gendyn, q=10, mul=2.6), min=-0.9, max=0.9) 
+vector_achorripsis = Sig(110); achorripsis_v = Clip(LFO(freq=vector_achorripsis, type=1, sharp=0.5, mul=0.6), min=-0.9, max=0.9)
 
 xenakis_sets = [logic_markov, analogique_v, gendyn_v, achorripsis_v]
 
