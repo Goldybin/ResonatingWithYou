@@ -1,6 +1,6 @@
 ## Adaptation of ResonatingWithYou
 
-Adaptation of ResonatingWithYou (huge thanks to Yeshi Namkhai, https://github.com/YeshiNamkhai) for MacOS+Windows, Novation Launchpad MK3 Pro (other Novation launchpads remained) and emulation through regular computer keyboard, plus virtual quadrophonic setup for headphones
+Adaptation of ResonatingWithYou (huge thanks to Yeshi Namkhai, https://github.com/YeshiNamkhai) for MacOS+Windows, added support for Novation Launchpad MK3 Pro and emulation through regular computer keyboard, as well as virtual quadrophonic setup for headphones.
 
 Simply run:
 
