@@ -1,4 +1,4 @@
-import sys, time, argparse
+import sys, time, argparse, os
 from pyo import *
 import mido
 
@@ -748,3 +748,4 @@ finally:
     if 'kb_mgr' in locals():
         kb_mgr.close()
     print("--- Goodbye ---")
+    os._exit(0)

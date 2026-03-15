@@ -1,4 +1,4 @@
-import sys
+import sys, os
 import time
 import random
 import threading
@@ -900,3 +900,4 @@ finally:
     if 'kb_mgr' in locals():
         kb_mgr.close()
     print("--- Goodbye ---")
+    os._exit(0)

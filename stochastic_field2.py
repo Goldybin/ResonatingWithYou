@@ -1,4 +1,4 @@
-import sys
+import sys, os
 import time, random, math, threading
 import argparse
 from pyo import *
@@ -923,5 +923,4 @@ finally:
     print("--- System Offline ---")
     
     # Force exit to kill any lingering daemon threads (Pyo callbacks, etc.)
-    import os
     os._exit(0)

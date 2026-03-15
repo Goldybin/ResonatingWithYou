@@ -25,6 +25,30 @@ SCRIPTS = [
 # Resolve script directory (same folder as start.py)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# Auto-detect virtual environment Python interpreter
+# (no need to "source activate" — we just use the venv's python directly)
+def find_venv_python():
+    """Find the Python interpreter inside .venv (macOS/Linux + Windows)."""
+    venv_dir = os.path.join(SCRIPT_DIR, '.venv')
+    if not os.path.isdir(venv_dir):
+        return sys.executable  # No venv found, use system Python
+
+    # Windows: .venv\Scripts\python.exe
+    win_python = os.path.join(venv_dir, 'Scripts', 'python.exe')
+    if os.path.isfile(win_python):
+        return win_python
+
+    # macOS/Linux: .venv/bin/python
+    unix_python = os.path.join(venv_dir, 'bin', 'python')
+    if os.path.isfile(unix_python):
+        return unix_python
+
+    return sys.executable  # Fallback
+
+VENV_PYTHON = find_venv_python()
+if VENV_PYTHON != sys.executable:
+    print(f"  Using venv: {VENV_PYTHON}")
+
 HEADER = """
 ╔══════════════════════════════════════════════════╗
 ║         Resonating With You                      ║
@@ -77,7 +101,7 @@ def run_script(filename, extra_args=None):
         print(f"\n  [ERROR] Script not found: {script_path}")
         return
 
-    cmd = [sys.executable, script_path]
+    cmd = [VENV_PYTHON, script_path]
     if extra_args:
         cmd.extend(extra_args)
 

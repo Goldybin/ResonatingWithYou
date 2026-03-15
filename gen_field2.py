@@ -1,4 +1,4 @@
-import sys
+import sys, os
 import time, random, math, threading
 import numpy as np
 import argparse
@@ -716,3 +716,4 @@ finally:
     if 'kb_mgr' in locals():
         kb_mgr.close()
     print("--- System Offline ---")
+    os._exit(0)

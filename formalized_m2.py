@@ -1,4 +1,5 @@
 import sys, time, random, math, threading, argparse
+import os
 import numpy as np
 from pyo import *
 
@@ -750,3 +751,4 @@ finally:
     if 'kb_mgr' in locals():
         kb_mgr.close()
     print("--- System Offline: All Formalized Processes Stopped ---")
+    os._exit(0)
