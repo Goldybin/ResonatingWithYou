@@ -52,7 +52,7 @@ if VENV_PYTHON != sys.executable:
 HEADER = """
 ╔══════════════════════════════════════════════════╗
 ║         Resonating With You                      ║
-║         Quadraphonic Audio Suite                  ║
+║         Quadraphonic Audio Suite                 ║
 ╚══════════════════════════════════════════════════╝
 """
 
