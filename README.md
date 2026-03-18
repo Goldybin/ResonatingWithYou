@@ -1,4 +1,6 @@
-## Adaptation of ResonatingWithYou (huge thanks to Yeshi Namkhai!) for MacOS+Windows, Launchpad MK3 Pro (other launchpads remained) and emulation through regular computer keyboard, plus virtual quadrophonic setup for headphones
+## Adaptation of ResonatingWithYou
+
+Adaptation of ResonatingWithYou (huge thanks to Namkhai Yeshi, https://github.com/YeshiNamkhai) for MacOS+Windows, added support for Novation Launchpad MK3 Pro and emulation through regular computer keyboard, as well as virtual quadrophonic setup for headphones.
 
 Simply run:
 
@@ -16,7 +18,7 @@ Simply run:
   
   DearVR Pro 2 plugin (https://www.sennheiser.com/globalassets/digizuite/50037-en-dearVR_PRO_2.zip) - it became totally free to use, not a paid plugin any longer
 
-  #### IMPORTANT: In order to achieve the full quadrophonic emulation, you need to select the right device ID (Blackhole) from the list of available audio devices, and set the number of channels to 4, for example like this:
+  #### IMPORTANT: All adapted scripts feature auto-detection for devices with 4 or more channels. However, if your device is not recognized correctly, you can manually force the selection by specifying the device ID (e.g., Blackhole) and setting the number of channels to 4, as shown in the example below:
   
       python3 beings_field2.py -c 4 -d 5
   
