@@ -72,42 +72,6 @@
               flow="input" hiddenOnBlock="0"/>
       </ports>
     </Node>
-    <Node id="3" format="Internal" identifier="midi.input" type="plugin"
-          name="" relativeX="0.7878787878787878" relativeY="0.1380368098159509"
-          pluginIdentifierString="Internal--6e34cabd-0" uuid="734c4ee8a41b4cadb04a0b68e1df87bb"
-          bypass="0" persistent="1" renderMode="single" keyStart="0" keyEnd="127"
-          transpose="0" delayCompensation="0.0" tempo="120.0" x="683.0"
-          y="69.0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
-          mute="0" muteInput="0" midiProgramsState="" oversamplingFactor="1"
-          enabled="1">
-      <nodes/>
-      <scripts/>
-      <ui>
-        <Block displayMode="compact" portAlignment="before"/>
-      </ui>
-      <ports>
-        <Port index="0" channel="0" type="midi" name="MIDI In 1" symbol="midi_in_1"
-              flow="output" hiddenOnBlock="0"/>
-      </ports>
-    </Node>
-    <Node id="4" format="Internal" identifier="midi.output" type="plugin"
-          name="" relativeX="0.7489177489177489" relativeY="0.9049079754601227"
-          pluginIdentifierString="Internal--6306046e-0" uuid="de1830027c444bb9b810dc1ebe26c8c1"
-          bypass="0" persistent="1" renderMode="single" keyStart="0" keyEnd="127"
-          transpose="0" delayCompensation="0.0" tempo="120.0" x="647.0"
-          y="569.0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
-          mute="0" muteInput="0" midiProgramsState="" oversamplingFactor="1"
-          enabled="1">
-      <nodes/>
-      <scripts/>
-      <ui>
-        <Block displayMode="compact" portAlignment="before"/>
-      </ui>
-      <ports>
-        <Port index="0" channel="0" type="midi" name="MIDI Out 1" symbol="midi_out_1"
-              flow="input" hiddenOnBlock="0"/>
-      </ports>
-    </Node>
     <Node id="5" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
           type="plugin" name="Left Front" relativeX="0.2067099567099567"
           relativeY="0.4355828220858896" pluginIdentifierString="VST3-dearVR PRO 2-2edb2c6e-d73d6aaa"
@@ -121,7 +85,7 @@
       <nodes/>
       <scripts/>
       <ui>
-        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,element_midi_input"
                portAlignment="before"/>
       </ui>
       <buses>
@@ -212,7 +176,7 @@
         <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
               flow="input" hiddenOnBlock="1"/>
         <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
-              flow="input" hiddenOnBlock="0"/>
+              flow="input" hiddenOnBlock="1"/>
       </ports>
     </Node>
     <Node id="6" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
@@ -228,7 +192,7 @@
       <nodes/>
       <scripts/>
       <ui>
-        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,element_midi_input"
                portAlignment="before"/>
       </ui>
       <buses>
@@ -319,7 +283,7 @@
         <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
               flow="input" hiddenOnBlock="1"/>
         <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
-              flow="input" hiddenOnBlock="0"/>
+              flow="input" hiddenOnBlock="1"/>
       </ports>
     </Node>
     <Node id="7" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
@@ -328,14 +292,14 @@
           uuid="f0d6752282d3476393271c95995f39dc" bypass="0" persistent="1"
           renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
           tempo="120.0" x="150.0" y="344.0" windowX="525" windowY="371"
-          windowVisible="0" state="1531.VMjLgHeA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1LiKV0jZLcFR43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2LRwDdTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MiPMkGTowjdDkWSxPTZMQiXS4DMlMDS5g0PNMCRBgTVvjFR1MiTMglKnYENHIDSzA0PMcGRo0TLpMUS4o1PMACQS0DMpMES3QzTLglKBE0aIcUVoEkLQc1ZrEFNHIDSzY1PLYmKCwjctLES2oVZLYmZowzLpMUSv3xPNglKRAUMqYUXvD0QZMUSVgkbUY0Sn4RZKgGSCwjLXMkS34RZLcGQ4wzcTMESvP0PLgmZogjYPQkV4E0UXQWSVk0TMYEVxUkUOglKosjcpMkS1o1TNYmZS4TLLkVS1IVdMMiYCwzLTMkSn4BdSkVSFEFLMckV0QiUOglKogjYXUkV3E0Uic1cVAUZ3X0X4E0UZkVSW8DZtj1R4QzPMYmKCwjcDMDS5o1PLoGQ40jdlMDS5IVZHYFRvDVcvDCUu81UYgCRRwDZtfFUqk0UYgWRwLkSvjFR1gjPHIUUrM1ZI0FVGUjUZQGLogjcyHUS2AUdLAiZ4wDLPMkSxfzPNkmZ4wDLTMTSxfjPHIUUrM1ZI0FVLgSLiAUQwHVdvjFR2gjPHIUUrM1ZI0FVHsVLY4VPUgUdMc0Sn4RZHYFRUkEa2YUVoE0UZUGMwLkSvjFR1gjPHIUUrkkbUECV5sVLgQ2XTg0azX0Sn4RZKMiKCwjctLDS1QzTLQCRCwDMHMjSzP0TMYmYogjYHUUVrcmUYkVTWoUczXzT0M1QTcVSxHFNHIESn4BZTsVVFE1ZMYzXugCaggzZwjkaAUEV40zUOglKogjYHUUVmcmQU8FLVkUPU0lXmcmUZUSQFM1a3vVX3fjTLglKBUUcAISUmcmQggCRBwDcDMjS4wTdLkGS4wjLLMDSwnVdMECSSwzLLkVSn4BZPUWTGMVcvDSUmcmQggCRBwDctLUSzn1TNQiZS4zLXMUSyX1TNACTS4DdTMUS5gjPHYTRxDFcQISUmcmQggCRBwDcHMjS4wTdLkGS4wzcLMTSwP0TLcmYC0jclkFSn4BZPcVSwn0UEYTXxASZHY2LnwTLXkVSwfUZMMiKS0jLPMTS2I1TLcGTowTLHIDRLUEaYo2XUgkb2Y0Sn4RZKkGVo0TLXkVSwH1PMECQ4wDMTkFSwvTZMICRogjYHUkVsclQicUQFElbvjFR1MCdLomZS4DMpMkSz.0PLkmZS0TdTMUS3gzPMECRBgjPqcjXm0jLhgCRBwDZtfFTm0jLhIDNwDVdQc0Sn4RZHYlKUkEdYESX3AiUXQWSVkUS3XTVqASZHYGRBgzTQcUV3UULgc0ZFkkdmY0Sn4RZHYldTgUdQcUV3MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYlcpk0ZiQEVuQiUOglKogjYLQTXmkzUZo2ZW8DZtjFRlY1UjAUQFkkUqYUVx.SZHYGRBgzLqcDUmEEaVUGNVEFNHgFSncCZO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
+          windowVisible="0" state="1531.VMjLgHeA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1LiKV0jZLcFR43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2LRwDdTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MiPMkGTowjdDkWSxPTZMQiXS4DMlMDS5g0PNMCRBgTVvjFR1MiTMglKnYENHIDSzA0PMcGRo0TLpMUS4o1PMACQS0DMpMES3QzTLglKBE0aIcUVoEkLQc1ZrEFNHIDSzY1PLYmKCwjctLES2oVZLYmZowzLpMUSv3xPNglKRAUMqYUXvD0QZMUSVgkbUY0Sn4RZKgGSCwjLXMkS34RZLcGQ4wzcTMESvP0PLgmZogjYPQkV4E0UXQWSVk0TMYEVxUkUOglKosjcpMkS1o1TNYmZS4TLLkVS1IVdMMiYCwzLTMkSn4BdSkVSFEFLMckV0QiUOglKogjYXUkV3E0Uic1cVAUZ3X0X4E0UZkVSW8DZtj1R4QzPMYmKCwjcDMDS5o1PLoGQ40jdlMDS5IVZHYFRvDVcvDCUu81UYgCRRwDZtfFUqk0UYgWRwLkSvjFR1gjPHIUUrM1ZI0FVGUjUZQGLogjcyHUS2AUdLAiZ4wDLPMkSxfzPNkmZ4wDLTMTSxfjPHIUUrM1ZI0FVLgSLiAUQwHVdvjFR2gjPHIUUrM1ZI0FVHsVLY4VPUgUdMc0Sn4RZHYFRUkEa2YUVoE0UZUGMwLkSvjFR1gjPHIUUrkkbUECV5sVLgQ2XTg0azX0Sn4RZKMiKCwjctLDS1QzTLQCRCwDMHMjSzP0TMYmYogjYHUUVrcmUYkVTWoUczXzT0M1QTcVSxHFNHIESn4BZTsVVFE1ZMYzXugCaggzZwjkaAUEV40zUOglKogjYHUUVmcmQU8FLVkUPU0lXmcmUZUSQFM1a3vVX3fjPLglKBUUcAISUmcmQggCRBwDcDMjS4wTdLkGS4wjLLMDSwnVdMECSSwzLLkVSn4BZPUWTGMVcvDSUmcmQggCRBwDctLUSzn1TNQiZS4zLXMUSyX1TNACTS4DdTMUS5gjPHYTRxDFcQISUmcmQggCRBwDcHMjS4wTdLkGS4wzcLMTSwP0TLcmYC0jclkFSn4BZPcVSwn0UEYTXxASZHY2LnwTLXkVSwfUZMMiKS0jLPMTS2I1TLcGTowTLHIDRLUEaYo2XUgkb2Y0Sn4RZKkGVo0TLXkVSwH1PMECQ4wDMTkFSwvTZMICRogjYHUkVsclQicUQFElbvjFR1MCdLomZS4DMpMkSz.0PLkmZS0TdTMUS3gzPMECRBgjPqcjXm0jLhgCRBwDZtfFTm0jLhIDNwDVdQc0Sn4RZHYlKUkEdYESX3AiUXQWSVkUS3XTVqASZHYGRBgzTQcUV3UULgc0ZFkkdmY0Sn4RZHYldTgUdQcUV3MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYlcpk0ZiQEVuQiUOglKogjYLQTXmkzUZo2ZW8DZtjFRlY1UjAUQFkkUqYUVx.SZHYGRBgzLqcDUmEEaVUGNVEFNHgFSncCZO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
           program="0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
           mute="0" muteInput="0" midiProgramsState="52.3o8Jnn7SunDysXFXfQFK.BaFXjY3rXkQF.BxKwbSkAFYhUFJtjDKAHKVX0.8XfA.h2YCaB"
           oversamplingFactor="1" enabled="1">
       <nodes/>
       <scripts/>
       <ui>
-        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,element_midi_input"
                portAlignment="before"/>
       </ui>
       <buses>
@@ -426,7 +390,7 @@
         <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
               flow="input" hiddenOnBlock="1"/>
         <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
-              flow="input" hiddenOnBlock="0"/>
+              flow="input" hiddenOnBlock="1"/>
       </ports>
     </Node>
     <Node id="9" format="VST3" identifier="/Library/Audio/Plug-Ins/VST3/dearVR PRO 2.vst3"
@@ -435,14 +399,14 @@
           uuid="2e4d7d1ea8e841c2868dc759798b5710" bypass="0" persistent="1"
           renderMode="single" keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
           tempo="120.0" x="339.0" y="347.0" windowX="460" windowY="147"
-          windowVisible="0" state="1531.VMjLgHeA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1LiKV0jZLcFR43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2LB4jLTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MCZMICQS4zcDkGSvX1PNkGS4wzcHMkSyXVZLMCRBgTVvjFR1MiTMglKnYENHIDSzwTdMYGV4wDMTkGS3Y1PLoGTC4DMDkGSvH1PMglKBE0aIcUVoEkLQc1ZrEFNHIDSzY1PLYmKCwjctLES2oVZLYmZowzLpMUSv3xPNglKRAUMqYUXvD0QZMUSVgkbUY0Sn4RZKgGSCwjLXMkS34RZLcGQ4wzcTMESvP0PLgmZogjYPQkV4E0UXQWSVk0TMYEVxUkUOglKosjcpMkS1o1TNYmZS4TLLkVS1IVdMMiYCwzLTMkSn4BdSkVSFEFLMckV0QiUOglKogjYXUkV3E0Uic1cVAUZ3X0X4E0UZkVSW8DZtj1R4QzPMYmKCwjcDMDS5o1PLoGQ40jdlMDS5IVZHYFRvDVcvDCUu81UYgCRRwDZtfFUqk0UYgWRwLkSvjFR1gjPHIUUrM1ZI0FVGUjUZQGLogjcyfVS1Y1TMcGUo0DdtjFS4QTZMgmYC0zchMkSxfjPHIUUrM1ZI0FVLgSLiAUQwHVdvjFR2gjPHIUUrM1ZI0FVHsVLY4VPUgUdMc0Sn4RZHYFRUkEa2YUVoE0UZUGMwLkSvjFR1gjPHIUUrkkbUECV5sVLgQ2XTg0azX0Sn4RZKMiKCwjctLDS1QzTLQCRCwDMHMjSzP0TMYmYogjYHUUVrcmUYkVTWoUczXzT0M1QTcVSxHFNHIESn4BZTsVVFE1ZMYzXugCaggzZwjkaAUEV40zUOglKogjYHUUVmcmQU8FLVkUPU0lXmcmUZUSQFM1a3vVX3fjTLglKBUUcAISUmcmQggCRBwDcDMjS4wTdLkGS4wjLLMDSwnVdMECSSwzLLkVSn4BZPUWTGMVcvDSUmcmQggCRBwDctLUSzn1TNQiZS4zLXMUSyX1TNACTS4DdTMUS5gjPHYTRxDFcQISUmcmQggCRBwDcHMjS4wTdLkGS4wzcLMTSwP0TLcmYC0jclkFSn4BZPcVSwn0UEYTXxASZHY2LnwTLXkVSwfUZMMiKS0jLPMTS2I1TLcGTowTLHIDRLUEaYo2XUgkb2Y0Sn4RZKkGVo0TLXkVSwH1PMECQ4wDMTkFSwvTZMICRogjYHUkVsclQicUQFElbvjFR1MCdLomZS4DMpMkSz.0PLkmZS0TdTMUS3gzPMECRBgjPqcjXm0jLhgCRBwDZtfFTm0jLhIDNwDVdQc0Sn4RZHYlKUkEdYESX3AiUXQWSVkUS3XTVqASZHYGRBgzTQcUV3UULgc0ZFkkdmY0Sn4RZHYldTgUdQcUV3MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYlcpk0ZiQEVuQiUOglKogjYLQTXmkzUZo2ZW8DZtjFRlY1UjAUQFkkUqYUVx.SZHYGRBgzLqcDUmEEaVUGNVEFNHgFSncCZO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
+          windowVisible="0" state="1529.VMjLg.eA...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCL1HiKV0jZLcFQ43hKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOQTUTAkTYsFUPcGUUczZpM0TQUETTUEQH8TUGMlcUczXMgiQYsFLogjcyHDS3A0PLYmKCwjctjFS1YVZMcGVowTLHIDRCgSLggWTVoEcEYzXq0TUjkWTWk0bvjFR2gjPHEzaWo0bUczXtASZHY2LB4jLTkFRlQEQgsVVWgkdqESXzASZHY2LR0DZtHTTu0zQicFMwf0ZvjFR1MiPLQCVS4zLpMkSyPzPNkmKSwDdtLDSyfUZMICRBgDVvjFR1MiTMQCR4wDdtjWS54RZLgGRS4TdtLkS1YVZLglKRYENHIDSzQUZHYlaU8DZtj1R4o1TLACTS0DLXkGSzvTZMgGS4wDLHMDSvPTZHYFTToEdUECV5MFUX8FMV8DZtj1Ry3xPLYmKCwjcDMESzfzPLQCRC4DMTMUS1YVZHYFQpQ1avX0X5cVLTkVQFE1ZvjFR1MCZLkmK40TLpkFS1gzTLcGSSwDLDMUSv3RZLQCRBgDQqEiX5UDagkVUwPUZEYTXqASZHY2LBwDMpMDSzn1PLQiZo0TdXMDSxH1PNMiKC4DLpkFRlcidXk1cVMVdqESXzASZHYGRBgjUqwlX5U0UXIWQ5gUcUIiX5sVLXkGLogjcyfGS2A0PLYmKCwzctLTSz3xPMcmXC0zLtLTSxfjPHIENwD1bMUkV0TkUOgFQogjYHUUVwTEahgFNpMENHIDSn4BZTsVVWkEdIESTmsFaggCRBwDcXMDSyP0TLACVowjcHkGS2gUZLMCTSwjLpkWSn4BZTsVVWkEdIYzT0M1QTcVSxHFNHIESn4BZTsVVWkEdIYjTuMlQZAUQwHVdvjFR1gjPHIUUrkkbUECV5sVLgQGNpMENHIDSn4BZTsVVFE1ZMYzXugCagcTQVoEcvjFR1MiPNYmKCwjctLDS2QzTNgmKS4DdlMkSvP0PLMCRBgjTUwVVxUULXo2ZwDFc2oWXxDTUXkWSW8DZDkFRlgTUYw1cVkUZQckV0QiQR81XFoETEEiX4ASZHYGRBgjTUYEVxEUUZMWUVAELIcEVxsFajcVTWoUczX0SnQTZHYFTvDlciUEVxcmUOglKoszclkGS4wTdLkGS40TdtjVSzHVZMkGQC4TdXkFRlgjdgoWTxD1biUEVxcmUOglKosjcTMkSzn1TNQiZC4TLTMjSyn1TMomZowDLTMTSn4BZQgGNrEldiUEVxcmUOglKosDdlkGS4wTdLkGSSwTdPkVSvPzTLMCTCwzLHkFRlgDUXk1bwT0Y2YTX3fjPLQGRo0TLXkVSwf0PNYGU40jdPMESxPzTLoGRo0DZtHzTqkkQicUQFElbvjFR1MCdLECVo0TLXkVSx.UZMcGSS4DLHkVS4gUdMgGRBgjTqESVtEkLUc1cFEFNHIDSzwzPMQiZS4DMpMkS54RdLQCU4wDLTkFS3AUZMglKnAEMAcEV40zUOglKogjYHQEV40TaPUGNwHldvjFR1gjPHAUUrIFa3vlXyUDagkVUVMUcQYUV3fjPLglK3QkdUwlXqgSLU8VTFMlavjFR1gjPH0TQwHldUwlXGUjUZQGLogjcyHjS14xPLYmKCwzcDMkS34xTNgmYS4DLTMDSyfjPHwTVVk0QEYkVzASZHYGRBgzP2YEV3slQiQCLogjcHIDRyr1QTcVTrU0aUEyX3fjPLglKBQFMAUEVp8FLgUGLV8DZHkFR0MyPt3hKt3hKt3hKt3hYRUUSTEETIckVwTjQisVTTgkdEYjKAQjYPQSPWgUdMcjKAQjct3hdA4hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEV77RRC8Vav8lak4Fc9vyKVMEUy.Ea0cVZtMEcgQWY9.."
           program="0" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
           mute="0" muteInput="0" midiProgramsState="52.3o8Jnn7SunDysXFXfQFK.BaFXjY3rXkQF.BxKwbSkAFYhUFJtjDKAHKVX0.8XfA.h2YCaB"
           oversamplingFactor="1" enabled="1">
       <nodes/>
       <scripts/>
       <ui>
-        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35"
+        <Block hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,element_midi_input"
                portAlignment="before"/>
       </ui>
       <buses>
@@ -533,14 +497,14 @@
         <Port index="38" channel="35" type="control" name="Bypass" symbol="control_35"
               flow="input" hiddenOnBlock="1"/>
         <Port index="39" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
-              flow="input" hiddenOnBlock="0"/>
+              flow="input" hiddenOnBlock="1"/>
       </ports>
     </Node>
   </nodes>
   <scripts/>
   <ui>
     <Block/>
-    <GraphEditorView width="924" height="652"/>
+    <GraphEditorView width="1614" height="858"/>
   </ui>
   <arcs>
     <Arc sourceNode="1" sourcePort="0" destNode="5" destPort="0"/>
@@ -592,10 +556,6 @@
     <Port index="16" channel="0" type="audio" name="Audio Out 1" symbol="audio_out_1"
           flow="output"/>
     <Port index="17" channel="1" type="audio" name="Audio Out 2" symbol="audio_out_2"
-          flow="output"/>
-    <Port index="18" channel="0" type="midi" name="MIDI In 1" symbol="midi_in_1"
-          flow="input"/>
-    <Port index="19" channel="0" type="midi" name="MIDI Out 1" symbol="midi_out_1"
           flow="output"/>
   </ports>
 </Node>
