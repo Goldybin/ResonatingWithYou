@@ -615,10 +615,11 @@ delays = [Delay(combined_to_delay[i] * delay_input_port, delay=delay_time_sig, f
 delay_to_reverb = [combined_to_delay[i] + delays[i] for i in range(4)]
 
 # 2. REVERB
+SIZE = [.59,.8,.65,.75]
 rev_mix_sig = Sig(0)
 rev_mix_port = Port(rev_mix_sig, risetime=0.5, falltime=0.5)
-rev_size_sig = Sig(0.5)
-reverbs = [Freeverb(delay_to_reverb[i], size=rev_size_sig, damp=0.5, bal=rev_mix_port) for i in range(4)]
+#rev_size_sig = Sig(0.5)
+reverbs = [Freeverb(delay_to_reverb[i], size=Sig(SIZE[i]), damp=0.5, bal=rev_mix_port) for i in range(4)]
 
 # --- Master Volume with Fader 
 master_fader = Fader(fadein=4.0, fadeout=2.0, dur=0, mul=0.6).play()

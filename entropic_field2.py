@@ -598,10 +598,10 @@ class GridVoice:
         self.dly_bl = Delay(self.ch_bl * self.moving_port, delay=dly_time_sig, feedback=dly_feed)
         self.dly_br = Delay(self.ch_br * self.moving_port, delay=dly_time_sig, feedback=dly_feed)
         # Channel assignment: auto-fold to 2 channels when num_channels == 2
-        self.rev_tl = Freeverb(self.ch_tl + self.dly_tl, size=0.8, damp=0.5, bal=rev_port, mul=comp_port).out(0)
+        self.rev_tl = Freeverb(self.ch_tl + self.dly_tl, size=0.59, damp=0.5, bal=rev_port, mul=comp_port).out(0)
         self.rev_tr = Freeverb(self.ch_tr + self.dly_tr, size=0.8, damp=0.5, bal=rev_port, mul=comp_port).out(1)
-        self.rev_bl = Freeverb(self.ch_bl + self.dly_bl, size=0.8, damp=0.5, bal=rev_port, mul=comp_port).out(2 % num_channels)
-        self.rev_br = Freeverb(self.ch_br + self.dly_br, size=0.8, damp=0.5, bal=rev_port, mul=comp_port).out(3 % num_channels)
+        self.rev_bl = Freeverb(self.ch_bl + self.dly_bl, size=0.65, damp=0.5, bal=rev_port, mul=comp_port).out(2 % num_channels)
+        self.rev_br = Freeverb(self.ch_br + self.dly_br, size=0.75, damp=0.5, bal=rev_port, mul=comp_port).out(3 % num_channels)
 
     def update(self, x, y, pitch, effect_active):
         self.freq.value = midiToHz(pitch)
