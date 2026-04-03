@@ -522,7 +522,7 @@ Example of default scale (Partch Otonality)
 ## ChNN sonic image 
 The [chnn_scan](chnn_scan.py) script is a quadraphonic image-to-sound sonifier. It scans a digital image pixel-by-pixel and shows the position on GUI, while allowing to control the speed, reverb and compression for a better listening experience.
 <p><img src="https://raw.githubusercontent.com/YeshiNamkhai/ResonatingWithYou/refs/heads/main/201310%20ChNN%20Barcelona%20by%20Paolo%20Fassoli_09_square_BW.jpg" width="150"><br>
-<sub>Photo courtesy of <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/paolo.fassoli.fotografia/">Paolo Fassoli</a></sub></p>
+<sup>Photo courtesy of <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/paolo.fassoli.fotografia/">Paolo Fassoli</a></sup></p>
 
 Auditory display: 
 * Pitch depends on brightness (grayscale) which maps the frequency.
